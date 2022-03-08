@@ -1,0 +1,19 @@
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.headshot {
+    height: 200px;
+    width: 200px;
+}
+
+.member-name {
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.member-name::first-letter {
+    font-size: 60px;
+}
