@@ -2,13 +2,13 @@
 import React, { useEffect ,useState} from 'react';
 
 
-export default function MyHealth() {
+export default function MyHealth(urlBase) {
     // creating use state for user
     const [user, setUser] = useState([]);
-
+    
 // fetching data from database api
    useEffect(() =>{
-    fetch("http://localhost:3000/person/")
+    fetch(urlBase)
     .then((response) => response.json())
     .then((data) => setUser(data.person))
    
@@ -16,12 +16,13 @@ export default function MyHealth() {
    }, []);
 
 
+
     // delete function to delete user
         
    const handleDelete = (e)=> {
     console.log(e.target.value)
     let id = e.target.value;
-    fetch("http://localhost:3000/person/" + id ,{method:'DELETE'})
+    fetch(urlBase + '/id' ,{method:'DELETE'})
 }
 
     
@@ -29,13 +30,14 @@ export default function MyHealth() {
     const profileList = user.map((user) => (
       <div>
  <li key = {user._id} >
-            {user.firstName}</li>
+           Name : {user.firstName}</li>
             <li>
-            {user.age}</li>
+           Age : {user.age}</li>
             <li>
-            {user.email}
+          Email :  {user.email}
         </li>
-        <button type='button'value = {user._id} onClick ={handleDelete}>Delete</button>
+        {/* delete button to remove user */}
+       
       </div> 
     ))
 
@@ -47,9 +49,11 @@ export default function MyHealth() {
         <div>My Health Page</div>
         {/* returning profile list of the user */}
         <ul>{profileList}</ul>
+        <button type='button'value = {user._id} onClick ={handleDelete}>Delete</button>
 
 
-{/* delete button to remove user */}
+
+
       
     </>
   )
