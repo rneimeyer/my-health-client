@@ -1,8 +1,7 @@
 import {useState, useEffect} from "react";
 
-const DailyTracker = ({urlBase}) => {
+const DailyTracker = ({urlBase, people, setPeople}) => {
 
-    const [people, setPeople] = useState([])
     const [email, setEmail] = useState("")
     const [personId, setPersonId] = useState("")
     const [date, setDate] = useState("")
@@ -10,13 +9,6 @@ const DailyTracker = ({urlBase}) => {
     const [length, setLength] = useState("")
     const [intensity, setIntensity] = useState("")
     const [activityModel, setActivityModel] = useState({})
-
-    useEffect(() => {
-        fetch(urlBase + "/person")
-          .then((response) => response.json())
-          .then((data) => setPeople(data.person))
-          .catch(() => console.log("oops, error"));
-      }, []);
 
 
     const emailHandleChange = (event) => {
@@ -60,6 +52,7 @@ const DailyTracker = ({urlBase}) => {
             "length": length,
             "intensity": intensity,
         }
+        setActivityModel(data)
         console.log(data)
         // let options = {
         //   method: 'POST',
