@@ -1,0 +1,26 @@
+
+header {
+    grid-column: 2/3;
+    grid-row: 6/7;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 10px 10% 10px 10%;
+    /* display: none; */
+}
+
+img.menu {
+    height: 45px;
+    display: flex;
+    justify-content: right;
+    /* display: none; */
+}
