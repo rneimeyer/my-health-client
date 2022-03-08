@@ -40,12 +40,6 @@ const DailyTracker = ({urlBase, people, setPeople}) => {
 
       const handleSubmit = (event) => {
         event.preventDefault();
-        // console.log(ownerId);
-        // console.log(urlBase + "/owners/" + ownerId)
-        // fetch(urlBase + "/owners/" + ownerId)
-        //   .then((response) => response.json())
-        //   .then((data) => setOwner(data.petOwner))
-        //   .catch(() => console.log("oops, error"));
         let data = {
             "date": date,
             "exercise": exercise,
@@ -54,16 +48,6 @@ const DailyTracker = ({urlBase, people, setPeople}) => {
         }
         setActivityModel(data)
         console.log(data)
-        // let options = {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   },
-        //   body: JSON.stringify(data)
-        // }
-        // fetch(urlBase, options)
-        //   .then(res => res.json())
-        //   .then(d => console.log(d))
       }
 
     return (
