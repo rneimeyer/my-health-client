@@ -1,11 +1,12 @@
 import "./App.css";
-import { Route, Link, Routes, Navigate} from "react-router-dom";
+import "./App.css";
+import { Route, Link, Routes } from "react-router-dom";
 import Header from './Components/Header/Header'
-import Footer from './Components/Footer/Footer'
-import Home from './Components/Home/Home'
-import AboutTeam from './Components/AboutTeam/AboutTeam'
-import MyHealth from './Components/MyHealth/MyHealth'
-import DailyTracker from './Components/DailyTracker/DailyTracker'
+// import Footer from './Components/Footer/Footer'
+// import Home from './Components/Home/Home'
+// import AboutTeam from './Components/AboutTeam/AboutTeam'
+// import MyHealth from './Components/MyHealth/MyHealth'
+// import DailyTracker from './Components/DailyTracker/DailyTracker'
 
 function App() {
 
@@ -17,15 +18,15 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home urlBase={urlBase}/>} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/about-team" element={<AboutTeam />} />
-          <Route path="/daily-tracker" element={<DailyTracker />} />
-          <Route path="/my-health" element={<MyHealth />} />
+          <Route path="/daily-tracker" element={<DailyTracker urlBase={urlBase}/>} />
+          <Route path="/my-health" element={<MyHealth urlBase={urlBase}/>} /> */}
         </Routes>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
