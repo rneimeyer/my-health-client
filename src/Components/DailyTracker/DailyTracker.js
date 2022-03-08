@@ -1,8 +1,6 @@
 import {useState, useEffect} from "react";
 
-let urlBase = "localhost:3000/"
-
-const DailyTracker = () => {
+const DailyTracker = ({urlBase}) => {
 
     const [people, setPeople] = useState([])
     const [email, setEmail] = useState("")
@@ -56,10 +54,13 @@ const DailyTracker = () => {
         //   .then((response) => response.json())
         //   .then((data) => setOwner(data.petOwner))
         //   .catch(() => console.log("oops, error"));
-        // let data = {
-        //   "artist" : artist,
-        //   "album" : album
-        // }
+        let data = {
+            "date": date,
+            "exercise": exercise,
+            "length": length,
+            "intensity": intensity,
+        }
+        console.log(data)
         // let options = {
         //   method: 'POST',
         //   headers: {
