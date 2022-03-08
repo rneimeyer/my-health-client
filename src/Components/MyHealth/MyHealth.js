@@ -48,7 +48,8 @@ export default function MyHealth(urlBase) {
         <div>My Health Page</div>
         {/* returning profile list of the user */}
         <ul>{profileList}</ul>
-        <button type='button'value = {user._id} onClick ={handleDelete}>Delete</button>  
+        <button type='button'value = {user._id} onClick ={handleDelete}>Delete</button>
+  
     </>
   )
 }
