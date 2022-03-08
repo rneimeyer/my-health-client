@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const Home = () => {
+const Home = ({urlBase}) => {
     const [people, setPeople] = useState([])
     const [person, setPerson] = useState({ firstName:"", lastName:"", email:"", age:Number, weight:Number, height:Number, mood:""})
     const handleChange = (event) => {
@@ -17,14 +17,14 @@ const Home = () => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/person", {
+        fetch(`${urlBase}person`, {
             headers: {
                 "Content-Type": "application/json",
             },
             method: "POST",
             body: JSON.stringify(person),
         })
-        .then(() => fetch('http://localhost:3000/person'))
+        .then(() => fetch(`${urlBase}person`))
         .then((response) => response.json())
         .then((data) => setPeople(data.person))
         .then(() => setPerson({ firstName:"", lastName:"", email:"", age:Number, weight:Number, height:Number, mood:""}))
