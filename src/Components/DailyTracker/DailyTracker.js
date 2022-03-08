@@ -8,15 +8,32 @@ const DailyTracker = ({urlBase, people, setPeople}) => {
     const [exercise, setExercise] = useState("")
     const [length, setLength] = useState("")
     const [intensity, setIntensity] = useState("")
-    const [activityModel, setActivityModel] = useState({})
+    const [activityId, setActivityId] = useState("")
 
 
     const emailHandleChange = (event) => {
         event.preventDefault();
         setEmail(event.target.value);
         let person = people.filter((n) => n.email === event.target.value)
-        console.log(person)
+        setPersonId(person[0]._id)
       };
+      
+    const putActivity = (id) => {
+        console.log(personId)
+        let data = {
+            "activity": id
+            }
+            let options = {
+                method: 'PUT',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+        fetch(urlBase + '/person/' + personId, options)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+       }
 
       const dateHandleChange = (event) => {
         event.preventDefault();
@@ -38,7 +55,7 @@ const DailyTracker = ({urlBase, people, setPeople}) => {
         setIntensity(event.target.value);
       };
 
-      const handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         let data = {
             "date": date,
@@ -46,8 +63,17 @@ const DailyTracker = ({urlBase, people, setPeople}) => {
             "length": length,
             "intensity": intensity,
         }
-        setActivityModel(data)
-        console.log(data)
+        let options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          }
+        fetch(`${urlBase}/activity`, options)
+            .then(res => res.json())
+            .then(data => putActivity(data.activity._id))
+
       }
 
     return (
@@ -63,43 +89,45 @@ const DailyTracker = ({urlBase, people, setPeople}) => {
                     <input onChange={dateHandleChange} name="date" placeholder="Date"></input>
                 </div>
                 <br />
-                <div onChange={activityHandleChange} className="activity">
+                <div className="activity">
                     <label> What activity did you do? </label>
-                    <select className="dropdown" id="activity-type">
-                        <option className='option' value="walk">Walk</option>
-                        <option className='option' value="run">Run</option>
-                        <option className='option' value="bike">Bike</option>
-                        <option className='option' value="swim">Swim</option>
-                        <option className='option' value="hike">Hike</option>
-                        <option className='option' value="yoga">Yoga</option>
-                        <option className='option' value="pilates">Pilates</option>
-                        <option className='option' value="hiit">HIIT</option>
-                        <option className='option' value="sports">Sports</option>
-                        <option className='option' value="dance">Dance</option>
-                        <option className='option' value="core">Core</option>
-                        <option className='option' value="arms">Arms</option>
-                        <option className='option' value="legs">Legs</option>
-                        <option className='option' value="back">Back</option>
-                        <option className='option' value="full-body-strength">Full Body Strength</option>
+                    <select onChange={activityHandleChange}  className="dropdown" id="activity-type">
+                        <option className='option' name="exercise" value=""></option>
+                        <option className='option' name="exercise" value="walk">Walk</option>
+                        <option className='option' name="exercise" value="run">Run</option>
+                        <option className='option' name="exercise" value="bike">Bike</option>
+                        <option className='option' name="exercise" value="swim">Swim</option>
+                        <option className='option' name="exercise" value="hike">Hike</option>
+                        <option className='option' name="exercise" value="yoga">Yoga</option>
+                        <option className='option' name="exercise" value="pilates">Pilates</option>
+                        <option className='option' name="exercise" value="hiit">HIIT</option>
+                        <option className='option' name="exercise" value="sports">Sports</option>
+                        <option className='option' name="exercise" value="dance">Dance</option>
+                        <option className='option' name="exercise" value="core">Core</option>
+                        <option className='option' name="exercise" value="arms">Arms</option>
+                        <option className='option' name="exercise" value="legs">Legs</option>
+                        <option className='option' name="exercise" value="back">Back</option>
+                        <option className='option' name="exercise" value="full-body-strength">Full Body Strength</option>
                     </select>
                 </div>
                 <div onChange={lengthHandleChange} className="length">
                     <input name="length" placeholder="Length in minutes"></input>
                 </div>
                 <br />
-                <div onChange={intensityHandleChange} className="intensity">
+                <div className="intensity">
                     <label> How intense was your activity? </label>
-                    <select className="dropdown" id="activity-type">
-                        <option className='option' value="1">1</option>
-                        <option className='option' value="2">2</option>
-                        <option className='option' value="3">3</option>
-                        <option className='option' value="4">4</option>
-                        <option className='option' value="5">5</option>
-                        <option className='option' value="6">6</option>
-                        <option className='option' value="7">7</option>
-                        <option className='option' value="8">8</option>
-                        <option className='option' value="9">9</option>
-                        <option className='option' value="10">10</option>
+                    <select onChange={intensityHandleChange} className="dropdown" id="activity-type">
+                        <option className='option' name="intensity" value=""></option>
+                        <option className='option' name="intensity" value="1">1</option>
+                        <option className='option' name="intensity" value="2">2</option>
+                        <option className='option' name="intensity" value="3">3</option>
+                        <option className='option' name="intensity" value="4">4</option>
+                        <option className='option' name="intensity" value="5">5</option>
+                        <option className='option' name="intensity" value="6">6</option>
+                        <option className='option' name="intensity" value="7">7</option>
+                        <option className='option' name="intensity" value="8">8</option>
+                        <option className='option' name="intensity" value="9">9</option>
+                        <option className='option' name="intensity" value="10">10</option>
                     </select>
                 </div>
                 <br />
