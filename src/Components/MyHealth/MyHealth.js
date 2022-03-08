@@ -2,13 +2,13 @@
 import React, { useEffect ,useState} from 'react';
 
 
-export default function MyHealth(urlBase) {
+export default function MyHealth({urlBase, people, setPeople}) {
     // creating use state for user
     const [user, setUser] = useState([]);
     
 // fetching data from database api
    useEffect(() =>{
-    fetch(urlBase + 'person')
+    fetch(urlBase + '/person')
     .then((response) => response.json())
     .then((data) => setUser(data.person))
    
@@ -21,7 +21,7 @@ export default function MyHealth(urlBase) {
    const handleDelete = (e)=> {
     console.log(e.target.value)
     let id = e.target.value;
-    fetch(urlBase +'person/' + id ,{method:'DELETE'})
+    fetch(urlBase +'/person/' + id ,{method:'DELETE'})
 }
 
     
@@ -36,7 +36,7 @@ export default function MyHealth(urlBase) {
           Email :  {user.email}
         </li>
         {/* delete button to remove user */}
-       
+        <button type='button'value = {user._id} onClick ={handleDelete}>Delete</button>
       </div> 
     ))
 
@@ -48,7 +48,7 @@ export default function MyHealth(urlBase) {
         <div>My Health Page</div>
         {/* returning profile list of the user */}
         <ul>{profileList}</ul>
-        <button type='button'value = {user._id} onClick ={handleDelete}>Delete</button>
+        
   
     </>
   )

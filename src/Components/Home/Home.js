@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-const Home = ({urlBase}) => {
-    const [people, setPeople] = useState([])
+const Home = ({urlBase, people, setPeople}) => {
+
     const [person, setPerson] = useState({ firstName:"", lastName:"", email:"", age:Number, weight:Number, height:Number, mood:""})
     const handleChange = (event) => {
         event.persist();
@@ -17,14 +17,14 @@ const Home = ({urlBase}) => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`${urlBase}person`, {
+        fetch(`${urlBase}/person`, {
             headers: {
                 "Content-Type": "application/json",
             },
             method: "POST",
             body: JSON.stringify(person),
         })
-        .then(() => fetch(`${urlBase}person`))
+        .then(() => fetch(`${urlBase}/person`))
         .then((response) => response.json())
         .then((data) => setPeople(data.person))
         .then(() => setPerson({ firstName:"", lastName:"", email:"", age:Number, weight:Number, height:Number, mood:""}))
