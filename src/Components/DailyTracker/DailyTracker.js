@@ -7,8 +7,6 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
   const [exercise, setExercise] = useState("");
   const [length, setLength] = useState("");
   const [intensity, setIntensity] = useState("");
-  const [activityId, setActivityId] = useState("");
-  const [user, setUser] = useState({});
   const [allActivities, setAllActivities] = useState([]);
 
   const emailHandleChange = (event) => {
@@ -16,39 +14,26 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
     setEmail(event.target.value);
     let person = people.filter((n) => n.email === event.target.value);
     setPersonId(person[0]._id);
-    setUser(person[0]);
-    setAllActivities(person[0].activity);
+    fetch(urlBase + "/person/" + person[0]._id)
+      .then((response) => response.json())
+      .then((data) => setAllActivities(data.person.activity));
   };
 
   //see if we need later
   const putActivity = (activity) => {
-    console.log(personId);
-    console.log(allActivities)
+    console.log("this is the data passed in");
+    console.log(activity);
+    console.log("this is the all activities saved");
+    console.log(allActivities);
     const activitiesCopy = [...allActivities];
-    console.log(...allActivities)
-    activitiesCopy.push(activity)
+    activitiesCopy.push(activity);
+    console.log("this is after the push");
+    console.log(activitiesCopy);
     let data = {
       activity: activitiesCopy,
     };
     let options = {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-    fetch(urlBase + "/person/" + personId, options)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
-
-  const postActivity = (id) => {
-    console.log(personId);
-    let data = {
-      activity: id,
-    };
-    let options = {
-      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -99,7 +84,10 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
       .then((data) => setAllActivities(data.activity));
     fetch(`${urlBase}/activity`, options)
       .then((res) => res.json())
-      .then((data) => putActivity(data));
+      .then((data) => putActivity(data.activity))
+      .then(() => setEmail(""))
+      .then(() => setDate(""))
+      .then(() => setLength(""));
   };
 
   return (
@@ -113,6 +101,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           <input
             onChange={emailHandleChange}
             name="email"
+            value={email}
             placeholder="Email"
           ></input>
         </div>
@@ -122,6 +111,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
             onChange={dateHandleChange}
             name="date"
             placeholder="Date"
+            value={date}
           ></input>
         </div>
         <br />
@@ -185,7 +175,11 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           </select>
         </div>
         <div onChange={lengthHandleChange} className="length">
-          <input name="length" placeholder="Length in minutes"></input>
+          <input
+            name="length"
+            value={length}
+            placeholder="Length in minutes"
+          ></input>
         </div>
         <br />
         <div className="intensity">
