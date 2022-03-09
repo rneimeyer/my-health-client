@@ -1,22 +1,17 @@
-//dailyview js
-
-import { useState } from "react";
-
-const DailyView = ({ urlBase, user }) => {
-    const [activities, setActivities] = useState(user.activity)
-//   const activities = user.activity;
-  console.log(user);
-
-  const handleDelete = (event) => {
-    const id = event.target.id;
-    console.log(id);
+const DailyView = ({ urlBase, user, handleSubmit }) => {
+    
+  const activities = user.activity;
+  const handleDelete = (id) => {
       fetch(`${urlBase}/activity/${id}`, {
           method: 'DELETE'
       })
       .then((response) => response.json())
-      .then(() => fetch(`${urlBase}/person/${user._id}`))
-      .then((data) => setActivities(data.person.activity))
   }
+
+const refreshPage = (event) => {
+    handleDelete(event.target.id)
+    handleSubmit(event)
+}
 
   const list = activities.map((activity) => {
     return (
@@ -25,7 +20,7 @@ const DailyView = ({ urlBase, user }) => {
         <p>Exercise: {activity.exercise}</p>
         <p>Length: {activity.length} minutes</p>
         <p>Intensity: {activity.intensity}</p>
-        <button onClick={handleDelete} id={activity._id}>Delete</button>
+        <button onClick={refreshPage} id={activity._id}>Delete</button>
       </div>
     );
   });

@@ -60,7 +60,7 @@ export default function MyHealth({ urlBase, people, setPeople }) {
             </button>
           </ul>
           <WeeklyView urlBase={urlBase} user={user} />
-          <DailyView urlBase={urlBase} user={user} />
+          <DailyView urlBase={urlBase} user={user} handleSubmit={handleSubmit}/>
         </div>
       )}
     </>
