@@ -21,14 +21,8 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
 
   //see if we need later
   const putActivity = (activity) => {
-    console.log("this is the data passed in");
-    console.log(activity);
-    console.log("this is the all activities saved");
-    console.log(allActivities);
     const activitiesCopy = [...allActivities];
     activitiesCopy.push(activity);
-    console.log("this is after the push");
-    console.log(activitiesCopy);
     let data = {
       activity: activitiesCopy,
     };
