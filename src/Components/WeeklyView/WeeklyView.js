@@ -1,6 +1,7 @@
 //weeklyview
 
 import { useState } from "react";
+import {Table} from 'react-bootstrap'
 
 const WeeklyView = ({ urlBase, user }) => {
 
@@ -33,11 +34,23 @@ const WeeklyView = ({ urlBase, user }) => {
 
   return (
     <div className="weekly-view">
-      <h3>Weekly Activity</h3>
-      <h4>You exercised for {days} days and a total of {hours} hours and {minutes} minutes</h4>
-      <h4>Your average intensity was {avgIntensity}</h4>
-      <h4>You did the following activities:</h4>
-      <div>{list}</div>
+      <h3 className="weekly-h3">Weekly Activity</h3>
+      <h4>You exercised for {days} days : {hours} hr : {minutes} min</h4>
+      <Table style={{width: '18rem'}}>
+      <thead>
+        <tr>
+        
+        <th>Activities</th>
+        <th> Intensity</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{list}</td>  
+            <td>{avgIntensity}</td>
+          </tr>
+        </tbody>
+        </Table>
     </div>
   );
 };
