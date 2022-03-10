@@ -26,7 +26,7 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/my-health-client" element={<Home urlBase={urlBase} people={people} setPeople={setPeople}/>} />
+          <Route path="/" element={<Home urlBase={urlBase} people={people} setPeople={setPeople}/>} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/about-team" element={<AboutTeam />} />
           <Route path="/daily-tracker" element={<DailyTracker urlBase={urlBase} people={people} setPeople={setPeople}/>} />
