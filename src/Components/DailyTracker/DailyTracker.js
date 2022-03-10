@@ -4,6 +4,9 @@ import "./DailyTracker.css";
 import Dumbbell from "../../assets/dumbell.png";
 
 const DailyTracker = ({ urlBase, people, setPeople }) => {
+
+  const [verification, setVerification] = useState(false)
+  const [personLength, setPersonLength] = useState(0)
   const [email, setEmail] = useState("");
   const [personId, setPersonId] = useState("");
   const [date, setDate] = useState("");
@@ -16,10 +19,11 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
     event.preventDefault();
     setEmail(event.target.value);
     let person = people.filter((n) => n.email === event.target.value);
-    setPersonId(person[0]._id);
-    fetch(urlBase + "/person/" + person[0]._id)
-      .then((response) => response.json())
-      .then((data) => setAllActivities(data.person.activity));
+    setPersonLength(person.length)
+      setPersonId(person[0]._id);
+      fetch(urlBase + "/person/" + person[0]._id)
+        .then((response) => response.json())
+        .then((data) => setAllActivities(data.person.activity));
   };
 
   //see if we need later
@@ -63,6 +67,12 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (personLength === 0 ) {
+      console.log("not true")
+      setVerification(true)
+    } else {
+    setVerification(false)
+    console.log("posting")
     let data = {
       date: date,
       exercise: exercise,
@@ -86,6 +96,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
       .then(() => setExercise(""))
       .then(() => setDate(""))
       .then(() => setLength(""));
+    }
   };
 
   return (
