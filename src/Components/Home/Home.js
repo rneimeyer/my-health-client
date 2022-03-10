@@ -6,7 +6,7 @@ import "./Home.css";
 import Family from "../../assets/family.jpg";
 
 const Home = ({ urlBase, people, setPeople }) => {
-  
+
   const [person, setPerson] = useState({
     firstName: "",
     lastName: "",
@@ -84,6 +84,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="firstName"
                 placeholder="First Name"
                 className="py-3 rounded "
+                required
               />
             </Form.Group>
 
@@ -98,6 +99,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="lastName"
                 placeholder="Last Name"
                 className="py-3 rounded "
+                required
               />
             </Form.Group>
 
@@ -126,6 +128,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="age"
                 placeholder="Enter your Age"
                 className="py-3 rounded "
+                required
               />
             </Form.Group>
 
@@ -141,6 +144,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="weight"
                 placeholder="Weight in lbs"
                 className="py-3 rounded "
+                required
               />
             </Form.Group>
 
@@ -156,6 +160,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="height"
                 placeholder="Height in cm"
                 className="py-3 rounded "
+                required
               />
             </Form.Group>
 
@@ -170,6 +175,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="mood"
                 placeholder="Enter your Mood"
                 className="py-3 rounded "
+                required
               />
             </Form.Group>
 
