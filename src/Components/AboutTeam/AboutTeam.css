@@ -1,5 +1,10 @@
 @import url("https://fonts.google.com/specimen/Shadows+Into+Light");
-@import './../../assets/AVENGEANCE-HEROIC-AVENGER-BI.ttf';
+
+@font-face {
+  font-family: Avenger;
+  src: url('./../../assets/AVENGEANCE-HEROIC-AVENGER-BI.ttf');
+  font-size: 100%;
+}
 
 @media only screen and (max-width: 767px) {
   .about-section {
