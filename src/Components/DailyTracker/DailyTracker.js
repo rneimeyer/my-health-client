@@ -4,6 +4,9 @@ import "./DailyTracker.css";
 import Dumbbell from "../../assets/dumbell.png";
 
 const DailyTracker = ({ urlBase, people, setPeople }) => {
+
+  const [verification, setVerification] = useState(false)
+  const [personLength, setPersonLength] = useState(0)
   const [email, setEmail] = useState("");
   const [personId, setPersonId] = useState("");
   const [date, setDate] = useState("");
@@ -16,10 +19,16 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
     event.preventDefault();
     setEmail(event.target.value);
     let person = people.filter((n) => n.email === event.target.value);
-    setPersonId(person[0]._id);
-    fetch(urlBase + "/person/" + person[0]._id)
-      .then((response) => response.json())
-      .then((data) => setAllActivities(data.person.activity));
+    console.log(person.length)
+    if (person.length === 0 ) {
+      console.log("not true")
+      setVerification(true)
+    } else {
+      setPersonId(person[0]._id);
+      fetch(urlBase + "/person/" + person[0]._id)
+        .then((response) => response.json())
+        .then((data) => setAllActivities(data.person.activity));
+    }
   };
 
   //see if we need later
@@ -184,7 +193,32 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           </Form.Select>
         </Form.Group>
 
+<<<<<<< HEAD
         {/* duration */}
+=======
+{/* activity */}
+<Form.Group className="mb-3" controlId="formBasicDropdown">
+<Form.Label><h5>What activity did you do?</h5></Form.Label>
+<Form.Select onChange={activityHandleChange} className="py-3">
+<option className='option' name="exercise" value="walk">Walk</option>
+                <option className='option' name="exercise" value=""></option>
+                <option className='option' name="exercise" value="run">Run</option>
+                <option className='option' name="exercise" value="bike">Bike</option>
+                <option className='option' name="exercise" value="swim">Swim</option>
+                <option className='option' name="exercise" value="hike">Hike</option>
+                <option className='option' name="exercise" value="yoga">Yoga</option>
+                <option className='option' name="exercise" value="pilates">Pilates</option>
+                <option className='option' name="exercise" value="hiit">HIIT</option>
+                <option className='option' name="exercise" value="sports">Sports</option>
+                <option className='option' name="exercise" value="dance">Dance</option>
+                <option className='option' name="exercise" value="core">Core</option>
+                <option className='option' name="exercise" value="arms">Arms</option>
+                <option className='option' name="exercise" value="legs">Legs</option>
+                <option className='option' name="exercise" value="back">Back</option>
+                <option className='option' name="exercise" value="full-body-strength">Full Body Strength</option>
+                </Form.Select>
+</Form.Group>
+>>>>>>> 3780369 (adding required to form and creating verification for email)
 
         <Form.Group className="mb-3" controlId="formBasicLength">
           <Form.Label>
@@ -237,6 +271,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           </Form.Select>
         </Form.Group>
 
+<<<<<<< HEAD
         <Button
           variant="primary"
           type="submit"
@@ -254,6 +289,42 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           https://pngtree.com/sigit-sulasmoko_14989530?type=1
         </p>
       </div>
+=======
+{/* intensity */}
+       <Form.Group className="mb-3" controlId="formBasicIntensity">
+<Form.Label><h5>How intense was your activity?</h5> </Form.Label>
+<Form.Select onChange={intensityHandleChange} className="option py-3">
+                <option className='option' name="intensity" value=""></option>
+                <option className='option' name="intensity" value="1">1</option>
+                <option className='option' name="intensity" value="2">2</option>
+                <option className='option' name="intensity" value="3">3</option>
+                <option className='option' name="intensity" value="4">4</option>
+                <option className='option' name="intensity" value="5">5</option>
+                <option className='option' name="intensity" value="6">6</option>
+                <option className='option' name="intensity" value="7">7</option>
+                <option className='option' name="intensity" value="8">8</option>
+                <option className='option' name="intensity" value="9">9</option>
+                <option className='option' name="intensity" value="10">10</option>
+                </Form.Select>
+                </Form.Group>
+          
+      <Button variant="primary" type="submit" value =" Submit" className="daily-btn">
+  Submit
+</Button>
+    </Form>
+
+    {verification === false ? (
+        <div></div>
+      ) : (
+        <div>
+          <h1>
+            We do not have record of your email. Please create an account to continue.
+          </h1>
+        </div>
+      )}
+    <div>
+      <img src={Dumbbell} alt="dumbbell image" className="dumbbell-img"/>
+>>>>>>> 3780369 (adding required to form and creating verification for email)
     </div>
   );
 };
