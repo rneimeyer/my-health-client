@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {Form} from 'react-bootstrap'
 
 const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
 
@@ -7,6 +8,10 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
   const [exercise, setExercise] = useState("");
   const [length, setLength] = useState("");
   const [intensity, setIntensity] = useState("");
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   const dateHandleChange = (event) => {
     event.preventDefault();
@@ -56,12 +61,12 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
   }
 
   return (
-    <div>
-      <h1>Update your Activity</h1>
-      <h2>
+    <div> 
+      <h2>Update your Activity</h2>
+      <p>
         Please update your activity below!
-      </h2>
-      <form onSubmit={updatePage}>
+      </p>
+      <Form onSubmit={updatePage}>
           <div className="date">
           <input
             onChange={dateHandleChange}
@@ -98,7 +103,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
         </div>
         <br />
         <input className="submit-button" type="submit" value="Update"></input>
-      </form>
+      </Form>
     </div>
   );
 };
