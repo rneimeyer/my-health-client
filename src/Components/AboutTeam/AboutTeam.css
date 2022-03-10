@@ -1,3 +1,4 @@
+
 .about-section {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
@@ -11,9 +12,35 @@
 
 .member-name {
     font-size: 30px;
-    padding-left: 20px;
+   
+    
 }
 
 .member-name::first-letter {
     font-size: 60px;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+    .about-section{
+    margin-left: 50rem;
+    margin-top: 50px;
+}
+
+.member-name{
+    letter-spacing: 2px;
+   margin-left: -15rem;
+   
+}
+.member-name::first-letter {
+    font-size: 130px;
+   
+}
+.team-h2{
+    text-align: center;
+    margin: 20px;
+}
+
 }
