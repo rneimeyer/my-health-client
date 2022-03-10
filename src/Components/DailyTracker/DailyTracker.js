@@ -26,7 +26,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
         .then((data) => setAllActivities(data.person.activity));
   };
 
-  //see if we need later
+
   const putActivity = (activity) => {
     const activitiesCopy = [...allActivities];
     activitiesCopy.push(activity);
@@ -68,11 +68,9 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (personLength === 0 ) {
-      console.log("not true")
       setVerification(true)
     } else {
     setVerification(false)
-    console.log("posting")
     let data = {
       date: date,
       exercise: exercise,
@@ -121,6 +119,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
             name="email"
             placeholder="Email"
             className="py-3"
+            required
           />
         </Form.Group>
 
@@ -134,6 +133,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
             name="date"
             placeholder="Date"
             className="py-3"
+            required
           />
         </Form.Group>
 
@@ -142,7 +142,9 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           <Form.Label>
             <h5>What activity did you do?</h5>
           </Form.Label>
-          <Form.Select onChange={activityHandleChange} className="py-3">
+          <Form.Select onChange={activityHandleChange} className="py-3" required>
+            <option className="option" name="exercise" value="">
+              </option>
             <option className="option" name="exercise" value="walk">
               Walk
             </option>
@@ -206,6 +208,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
             name="length"
             placeholder="Length in minutes"
             className="py-3"
+            required
           />
         </Form.Group>
 
@@ -214,7 +217,9 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           <Form.Label>
             <h5>How intense was your activity?</h5>{" "}
           </Form.Label>
-          <Form.Select onChange={intensityHandleChange} className="option py-3">
+          <Form.Select onChange={intensityHandleChange} className="option py-3" required>
+            <option className="option" name="intensity" value="0">
+              </option>
             <option className="option" name="intensity" value="1">
               1
             </option>
@@ -257,7 +262,15 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           Submit
         </Button>
       </Form>
-
+      {verification === false ? (
+        <div></div>
+      ) : (
+        <div>
+          <h1>
+            We do not have record of your email. Please create an account to continue.
+          </h1>
+        </div>
+      )}
       <div className="dumbbell-container">
         <img src={Dumbbell} alt="dumbbell image" className="dumbbell-img" />
         <p className="image-credit">

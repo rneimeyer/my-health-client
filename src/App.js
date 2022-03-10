@@ -1,5 +1,5 @@
 import "./App.css";
-import "./App.css";
+import apiUrl from "./apiUrl"; 
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Header from './Components/Header/Header'
@@ -11,7 +11,7 @@ import DailyTracker from './Components/DailyTracker/DailyTracker'
 
 function App() {
 
-  const urlBase = 'http://localhost:3000'
+  const urlBase = apiUrl
   const [people, setPeople] = useState([])
 
   useEffect(() =>{

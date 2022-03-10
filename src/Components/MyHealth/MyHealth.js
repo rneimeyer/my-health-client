@@ -27,13 +27,6 @@ export default function MyHealth({ urlBase, people, setPeople }) {
       .then((data) => setUser(data.person));
   };
 
-  // delete function to delete user
-  const handleDelete = (e) => {
-    console.log(e.target.value);
-    let id = e.target.value;
-    fetch(urlBase + "/person/" + id, { method: "DELETE" });
-  };
-
   return (
     <>
       <h3 className="health-h3">My Health Page</h3>
@@ -59,9 +52,6 @@ export default function MyHealth({ urlBase, people, setPeople }) {
             <li key={user._id}>Name : {user.firstName}</li>
             <li>Age : {user.age}</li>
             <li>Email : {user.email}</li>
-            <Button type="button" value={user._id} onClick={handleDelete} className="delete-btn">
-              Delete
-            </Button>
           </ul>
           <WeeklyView urlBase={urlBase} user={user} />
           <DailyView urlBase={urlBase} user={user} handleSubmit={handleSubmit}/>
