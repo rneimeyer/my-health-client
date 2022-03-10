@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import WeeklyView from "./../WeeklyView/WeeklyView";
+import DailyView from "./../DailyView/DailyView";
 
 export default function MyHealth({ urlBase, people, setPeople }) {
   // creating use state for user
@@ -7,7 +8,7 @@ export default function MyHealth({ urlBase, people, setPeople }) {
   const [email, setEmail] = useState("");
   const [personId, setPersonId] = useState("");
 
-// function for setting the email
+  // function for setting the email
   const emailHandleChange = (event) => {
     event.preventDefault();
     setEmail(event.target.value);
@@ -15,7 +16,7 @@ export default function MyHealth({ urlBase, people, setPeople }) {
     setPersonId(person[0]._id);
   };
 
-// function for submitting the email
+  // function for submitting the email
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("submit");
@@ -49,16 +50,17 @@ export default function MyHealth({ urlBase, people, setPeople }) {
         <div></div>
       ) : (
         <div>
-        <ul>
-          {" "}
-          <li key={user._id}>Name : {user.firstName}</li>
-          <li>Age : {user.age}</li>
-          <li>Email : {user.email}</li>
-          <button type="button" value={user._id} onClick={handleDelete}>
-            Delete
-          </button>
-        </ul>
-        <WeeklyView urlBase={urlBase} user={user} />
+          <ul>
+            {" "}
+            <li key={user._id}>Name : {user.firstName}</li>
+            <li>Age : {user.age}</li>
+            <li>Email : {user.email}</li>
+            <button type="button" value={user._id} onClick={handleDelete}>
+              Delete
+            </button>
+          </ul>
+          <WeeklyView urlBase={urlBase} user={user} />
+          <DailyView urlBase={urlBase} user={user} handleSubmit={handleSubmit}/>
         </div>
       )}
     </>

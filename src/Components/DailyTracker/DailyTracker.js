@@ -80,6 +80,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
       .then((res) => res.json())
       .then((data) => putActivity(data.activity))
       .then(() => setEmail(""))
+      .then(()=>setExercise(""))
       .then(() => setDate(""))
       .then(() => setLength(""));
   };
