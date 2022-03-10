@@ -30,9 +30,6 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
 
   const handleUpdate = (event) => {
     event.preventDefault();
-    // if (activity.length === length) {
-
-    // }
     let data = {
       date: date,
       exercise: exercise,
@@ -70,7 +67,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
             onChange={dateHandleChange}
             name="date"
             value={date}
-            placeholder={activity.date}
+            placeholder={activity.date} required
           ></input>
         </div>
         <br />
@@ -79,14 +76,15 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
           <input onChange={activityHandleChange} 
             name="exercise"
             value={exercise}
-            placeholder={activity.exercise}
+            placeholder={activity.exercise} required
           ></input>
         </div>
         <div className="length">
+          <label>How long did you work out (in minutes)?</label>
           <input onChange={lengthHandleChange} 
             name="length"
             value={length}
-            placeholder={activity.length}
+            placeholder={activity.length} required
           ></input>
         </div>
         <br />
@@ -95,7 +93,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
           <input onChange={intensityHandleChange}
             name="intensity"
             value={intensity}
-            placeholder={activity.intensity}
+            placeholder={activity.intensity} required
           ></input>
         </div>
         <br />
