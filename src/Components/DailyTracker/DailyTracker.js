@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import {Form,Button} from 'react-bootstrap'
-import './DailyTracker.css'
-import  Dumbbell from '../../assets/dumbell.png'
+import { Form, Button } from "react-bootstrap";
+import "./DailyTracker.css";
+import Dumbbell from "../../assets/dumbell.png";
 
 const DailyTracker = ({ urlBase, people, setPeople }) => {
   const [email, setEmail] = useState("");
@@ -83,93 +83,179 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
       .then((res) => res.json())
       .then((data) => putActivity(data.activity))
       .then(() => setEmail(""))
-      .then(()=>setExercise(""))
+      .then(() => setExercise(""))
       .then(() => setDate(""))
       .then(() => setLength(""));
   };
 
   return (
-    <div>
-    <h2 className="daily-h2"> Welcome to the Daily Tracker</h2>
-    <p className="tagline">Please input your email and the date to track your activity today!</p>
+    <div className="daily-tracker-body">
+      <h2 className="daily-h2"> Welcome to the Daily Tracker</h2>
+      <p className="tagline">
+        Please input your email and the date to track your activity today!
+      </p>
 
-    <Form className="rounded p-4 p-sm-5"className="daily-form" onSubmit={handleSubmit}>
+      <Form
+        className="rounded p-4 p-sm-5"
+        className="daily-form"
+        onSubmit={handleSubmit}
+      >
+        {/* email */}
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>
+            <h5>Email</h5>
+          </Form.Label>
+          <Form.Control
+            onChange={emailHandleChange}
+            name="email"
+            placeholder="Email"
+            className="py-3"
+          />
+        </Form.Group>
 
-    {/* email */}
-<Form.Group className="mb-3" controlId="formBasicEmail">
-<Form.Label><h5>Email</h5></Form.Label>
-<Form.Control onChange={emailHandleChange} name="email" placeholder="Email" className="py-3" />
-</Form.Group>
+        {/* date */}
+        <Form.Group className="mb-3" controlId="formBasicDate">
+          <Form.Label>
+            <h5>Date</h5>
+          </Form.Label>
+          <Form.Control
+            onChange={dateHandleChange}
+            name="date"
+            placeholder="Date"
+            className="py-3"
+          />
+        </Form.Group>
 
-{/* date */}
-<Form.Group className="mb-3" controlId="formBasicDate">
-<Form.Label><h5>Date</h5></Form.Label>
-<Form.Control onChange={dateHandleChange} name="date" placeholder="Date" className="py-3" />
-</Form.Group>
+        {/* activity */}
+        <Form.Group className="mb-3" controlId="formBasicDropdown">
+          <Form.Label>
+            <h5>What activity did you do?</h5>
+          </Form.Label>
+          <Form.Select onChange={activityHandleChange} className="py-3">
+            <option className="option" name="exercise" value="walk">
+              Walk
+            </option>
+            <option className="option" name="exercise" value="run">
+              Run
+            </option>
+            <option className="option" name="exercise" value="bike">
+              Bike
+            </option>
+            <option className="option" name="exercise" value="swim">
+              Swim
+            </option>
+            <option className="option" name="exercise" value="hike">
+              Hike
+            </option>
+            <option className="option" name="exercise" value="yoga">
+              Yoga
+            </option>
+            <option className="option" name="exercise" value="pilates">
+              Pilates
+            </option>
+            <option className="option" name="exercise" value="hiit">
+              HIIT
+            </option>
+            <option className="option" name="exercise" value="sports">
+              Sports
+            </option>
+            <option className="option" name="exercise" value="dance">
+              Dance
+            </option>
+            <option className="option" name="exercise" value="core">
+              Core
+            </option>
+            <option className="option" name="exercise" value="arms">
+              Arms
+            </option>
+            <option className="option" name="exercise" value="legs">
+              Legs
+            </option>
+            <option className="option" name="exercise" value="back">
+              Back
+            </option>
+            <option
+              className="option"
+              name="exercise"
+              value="full-body-strength"
+            >
+              Full Body Strength
+            </option>
+          </Form.Select>
+        </Form.Group>
 
-{/* activity */}
-<Form.Group className="mb-3" controlId="formBasicDropdown">
-<Form.Label><h5>What activity did you do?</h5></Form.Label>
-<Form.Select onChange={activityHandleChange} className="py-3">
-                <option className='option' name="exercise" value="walk">Walk</option>
-                <option className='option' name="exercise" value="run">Run</option>
-                <option className='option' name="exercise" value="bike">Bike</option>
-                <option className='option' name="exercise" value="swim">Swim</option>
-                <option className='option' name="exercise" value="hike">Hike</option>
-                <option className='option' name="exercise" value="yoga">Yoga</option>
-                <option className='option' name="exercise" value="pilates">Pilates</option>
-                <option className='option' name="exercise" value="hiit">HIIT</option>
-                <option className='option' name="exercise" value="sports">Sports</option>
-                <option className='option' name="exercise" value="dance">Dance</option>
-                <option className='option' name="exercise" value="core">Core</option>
-                <option className='option' name="exercise" value="arms">Arms</option>
-                <option className='option' name="exercise" value="legs">Legs</option>
-                <option className='option' name="exercise" value="back">Back</option>
-                <option className='option' name="exercise" value="full-body-strength">Full Body Strength</option>
-                </Form.Select>
-</Form.Group>
+        {/* duration */}
 
+        <Form.Group className="mb-3" controlId="formBasicLength">
+          <Form.Label>
+            <h5>Duration</h5>
+          </Form.Label>
+          <Form.Control
+            onChange={lengthHandleChange}
+            name="length"
+            placeholder="Length in minutes"
+            className="py-3"
+          />
+        </Form.Group>
 
-      {/* duration */}
-               
-       <Form.Group className="mb-3" controlId="formBasicLength">
-<Form.Label><h5>Duration</h5></Form.Label>
-<Form.Control onChange={lengthHandleChange} name="length" placeholder="Length in minutes" className="py-3" />
-</Form.Group> 
-       
+        {/* intensity */}
+        <Form.Group className="mb-3" controlId="formBasicIntensity">
+          <Form.Label>
+            <h5>How intense was your activity?</h5>{" "}
+          </Form.Label>
+          <Form.Select onChange={intensityHandleChange} className="option py-3">
+            <option className="option" name="intensity" value="1">
+              1
+            </option>
+            <option className="option" name="intensity" value="2">
+              2
+            </option>
+            <option className="option" name="intensity" value="3">
+              3
+            </option>
+            <option className="option" name="intensity" value="4">
+              4
+            </option>
+            <option className="option" name="intensity" value="5">
+              5
+            </option>
+            <option className="option" name="intensity" value="6">
+              6
+            </option>
+            <option className="option" name="intensity" value="7">
+              7
+            </option>
+            <option className="option" name="intensity" value="8">
+              8
+            </option>
+            <option className="option" name="intensity" value="9">
+              9
+            </option>
+            <option className="option" name="intensity" value="10">
+              10
+            </option>
+          </Form.Select>
+        </Form.Group>
 
-{/* intensity */}
-       <Form.Group className="mb-3" controlId="formBasicIntensity">
-<Form.Label><h5>How intense was your activity?</h5> </Form.Label>
-<Form.Select onChange={intensityHandleChange} className="option py-3">
-       
-                <option className='option' name="intensity" value="1">1</option>
-                <option className='option' name="intensity" value="2">2</option>
-                <option className='option' name="intensity" value="3">3</option>
-                <option className='option' name="intensity" value="4">4</option>
-                <option className='option' name="intensity" value="5">5</option>
-                <option className='option' name="intensity" value="6">6</option>
-                <option className='option' name="intensity" value="7">7</option>
-                <option className='option' name="intensity" value="8">8</option>
-                <option className='option' name="intensity" value="9">9</option>
-                <option className='option' name="intensity" value="10">10</option>
-                </Form.Select>
-                </Form.Group>
-          
-      <Button variant="primary" type="submit" value =" Submit" className="daily-btn">
-  Submit
-</Button>
-    </Form>
+        <Button
+          variant="primary"
+          type="submit"
+          value=" Submit"
+          className="daily-btn"
+        >
+          Submit
+        </Button>
+      </Form>
 
-
-    <div>
-      <img src={Dumbbell} alt="dumbbell image" className="dumbbell-img"/>
+      <div className="dumbbell-container">
+        <img src={Dumbbell} alt="dumbbell image" className="dumbbell-img" />
+        <p className="image-credit">
+          Image Credit: Author: sigit sulasmoko, Website:
+          https://pngtree.com/sigit-sulasmoko_14989530?type=1
+        </p>
+      </div>
     </div>
-
-</div>
-
-
-)
-}
+  );
+};
 
 export default DailyTracker;

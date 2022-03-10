@@ -1,46 +1,45 @@
-
 .about-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .headshot {
-    height: 200px;
-    width: 200px;
+  height: 200px;
+  width: 200px;
+  
 }
 
 .member-name {
-    font-size: 30px;
-   
-    
+  font-size: 30px;
+  grid-column: 2/3;
 }
 
 .member-name::first-letter {
-    font-size: 60px;
+  font-size: 60px;
 }
-
-
-
 
 @media only screen and (min-width: 768px) {
-    .about-section{
-    margin-left: 50rem;
-    margin-top: 50px;
-}
+    .about {
+        width: 80%;
+        margin-left: 10%;
+    }
+  .about-section {
 
-.member-name{
+  }
+
+  .about-text {
+      size:
+  }
+  .member-name {
     letter-spacing: 2px;
-   margin-left: -15rem;
-   
-}
-.member-name::first-letter {
+  }
+  .member-name::first-letter {
     font-size: 130px;
-   
-}
-.team-h2{
+  }
+
+  .team-h2 {
     text-align: center;
     margin: 20px;
-}
-
+  }
 }

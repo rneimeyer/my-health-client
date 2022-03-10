@@ -3,7 +3,7 @@ import "./App.css";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Header from './Components/Header/Header'
-// import Footer from './Components/Footer/Footer'
+import Footer from './Components/Footer/Footer'
 import Home from './Components/Home/Home'
 import AboutTeam from './Components/AboutTeam/AboutTeam'
 import MyHealth from './Components/MyHealth/MyHealth'
@@ -34,7 +34,7 @@ function App() {
         </Routes>
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
