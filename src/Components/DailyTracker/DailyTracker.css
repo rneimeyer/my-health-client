@@ -30,8 +30,8 @@
 @media only screen and (min-width: 1024px) {
   .daily-tracker-body {
     display: grid;
-    grid-template-columns: 30rem 1fr 30rem;
-    grid-template-rows: 1fr;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 80px 40px 650px 750px;
   }
 
   .tagline {
@@ -39,7 +39,7 @@
   }
   
   .dumbbell-img {
-    height: 80%;
+    height: 100%;
     width: 100%;
   }
 
