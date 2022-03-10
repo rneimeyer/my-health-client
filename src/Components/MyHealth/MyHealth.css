@@ -1,0 +1,37 @@
+
+
+
+.health-h3{
+    padding:10px;
+    margin-bottom: -10px;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.health-form{
+   padding: 20px;
+   margin-right: -5px;
+   margin-bottom: 10px;
+   width: 30rem;
+}
+
+.btn-submit{
+    margin-top: 20px;
+    
+}
+
+.delete-btn{
+    width: 6rem;
+    margin-top: 15px;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+}

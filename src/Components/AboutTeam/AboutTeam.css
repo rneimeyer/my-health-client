@@ -1,0 +1,100 @@
+@import url("https://fonts.google.com/specimen/Shadows+Into+Light");
+
+@font-face {
+  font-family: Avenger;
+  src: url('./../../assets/AVENGEANCE-HEROIC-AVENGER-BI.ttf');
+  font-size: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  .about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+
+  .headshot {
+    height: 400px;
+    width: 400px;
+  }
+
+  .member-name {
+    font-size: 30px;
+    grid-column: 2/3;
+  }
+
+  .member-name::first-letter {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .about {
+    margin-top: 10px;
+  }
+
+  .team-h2 {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .about-section {
+    display: grid;
+    grid-template-columns: 400px 190px 800px;
+    grid-template-rows: 400px 400px 400px 400px;
+    font-family: 'Bitter', serif;
+  }
+
+  .about-section {
+    margin: 50px 20% 50px 20%;
+  }
+
+  .about-text {
+    font-size: 24px;
+    width: 800px;
+    padding: 20px 10px 20px 0;
+  }
+
+  .bio-stats {
+    margin: -5px 0 0 0;
+  }
+  .bio-body{
+    margin: 10px 0 10px 0;
+  }
+
+  .headshot {
+    height: 400px;
+    width: 400px;
+  }
+
+  .member-name::first-letter {
+    font-size: 20px;
+  }
+  .about {
+    width: 100%;
+  }
+
+  .member-name {
+    font-size: 30px;
+    grid-column: 2/3;
+    margin-top: 100px;
+    letter-spacing: 2px;
+    margin-right: 99%;
+    width: 100px;
+    font-family: '';
+    font-size: 100%;
+  }
+  .member-name::first-letter {
+    font-size: 130px;
+  }
+
+  .linkedin {
+    height: 100px;
+    width: 100px
+  }
+
+  .github {
+    height: 100px;
+    width: 100px
+  }
+}
