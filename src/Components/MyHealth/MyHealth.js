@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import WeeklyView from "./../WeeklyView/WeeklyView";
 import DailyView from "./../DailyView/DailyView";
+import {Form, Button} from 'react-bootstrap'
+import './MyHealth.css'
 
 export default function MyHealth({ urlBase, people, setPeople }) {
   // creating use state for user
@@ -34,30 +36,32 @@ export default function MyHealth({ urlBase, people, setPeople }) {
 
   return (
     <>
-      <h3>My Health Page</h3>
+      <h3 className="health-h3">My Health Page</h3>
       {/* returning profile list of the user */}
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}className="health-form">
         <div className="email">
-          <input
+          <Form.Control
             onChange={emailHandleChange}
             name="email"
             placeholder="Email"
-          ></input>
+          ></Form.Control>
         </div>
-        <input className="submit-button" type="submit"></input>
-      </form>
+        <Button variant="primary" type="submit" className="btn-submit">
+    Submit
+  </Button>
+      </Form>
       {user.length === 0 ? (
         <div></div>
       ) : (
-        <div>
+        <div className="user-profile">
           <ul>
             {" "}
             <li key={user._id}>Name : {user.firstName}</li>
             <li>Age : {user.age}</li>
             <li>Email : {user.email}</li>
-            <button type="button" value={user._id} onClick={handleDelete}>
+            <Button type="button" value={user._id} onClick={handleDelete} className="delete-btn">
               Delete
-            </button>
+            </Button>
           </ul>
           <WeeklyView urlBase={urlBase} user={user} />
           <DailyView urlBase={urlBase} user={user} handleSubmit={handleSubmit}/>
