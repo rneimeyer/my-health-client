@@ -46,7 +46,7 @@ const showUpdate = (event) => {
       <h3>Daily Activity</h3>
       <div>{list}</div>
       {view === false ? (<div></div>) : (
-          <Update activity={activity} setView={setView} handleSubmit={handleSubmit}/>
+          <Update urlBase={urlBase} activity={activity} setActivity={setActivity} setView={setView} handleSubmit={handleSubmit}/>
       )}
     </div>
     
