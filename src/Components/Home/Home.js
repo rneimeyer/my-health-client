@@ -1,6 +1,10 @@
 //home
 
 import { useState } from 'react';
+import { Form, Button } from "react-bootstrap";
+import './Home.css'
+import Family from '../../assets/family.jpg'
+
 
 const Home = ({urlBase, people, setPeople}) => {
 
