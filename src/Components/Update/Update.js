@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 
-const Update = ({ urlBase, activity, setView, handleSubmit }) => {
+const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
 
+    console.log(urlBase)
   const [date, setDate] = useState("");
   const [exercise, setExercise] = useState("");
   const [length, setLength] = useState("");
-  const [intensity, setIntensity] = useState(activity.intensity);
+  const [intensity, setIntensity] = useState("");
 
   const dateHandleChange = (event) => {
     event.preventDefault();
@@ -35,6 +36,7 @@ const Update = ({ urlBase, activity, setView, handleSubmit }) => {
       length: length,
       intensity: intensity,
     };
+    console.log(data)
     let options = {
       method: "PUT",
       headers: {
@@ -42,8 +44,9 @@ const Update = ({ urlBase, activity, setView, handleSubmit }) => {
       },
       body: JSON.stringify(data),
     };
-    fetch(`${urlBase}/activity`, options)
+    fetch(`${urlBase}/activity/${activity._id}`, options)
       .then((res) => res.json())
+      .then((data) => setActivity(data))
       .then(()=>setView(false))
   };
 
@@ -63,7 +66,8 @@ const Update = ({ urlBase, activity, setView, handleSubmit }) => {
           <input
             onChange={dateHandleChange}
             name="date"
-            value={activity.date}
+            value={date}
+            placeholder={activity.date} required
           ></input>
         </div>
         <br />
@@ -71,13 +75,16 @@ const Update = ({ urlBase, activity, setView, handleSubmit }) => {
           <label> What activity did you do? </label>
           <input onChange={activityHandleChange} 
             name="exercise"
-            value={activity.exercise}
+            value={exercise}
+            placeholder={activity.exercise} required
           ></input>
         </div>
         <div className="length">
+          <label>How long did you work out (in minutes)?</label>
           <input onChange={lengthHandleChange} 
             name="length"
-            value={activity.length}
+            value={length}
+            placeholder={activity.length} required
           ></input>
         </div>
         <br />
@@ -86,6 +93,7 @@ const Update = ({ urlBase, activity, setView, handleSubmit }) => {
           <input onChange={intensityHandleChange}
             name="intensity"
             value={intensity}
+            placeholder={activity.intensity} required
           ></input>
         </div>
         <br />
