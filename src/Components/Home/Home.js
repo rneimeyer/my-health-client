@@ -68,8 +68,7 @@ const Home = ({ urlBase, people, setPeople }) => {
       <div className="row">
         <div className=" color-overlay  justify-content-center col-md-4 align-item-center ml-4">
           <Form
-            className="rounded p-4 p-lg-5 ml-2"
-            className="home-form"
+            className="rounded p-4 p-lg-5 ml-2 home-form"
             onSubmit={handleSubmit}
           >
             {/* firstname */}
@@ -114,6 +113,8 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="email"
                 placeholder="Enter your Email"
                 className="py-3 rounded person-input"
+                type="email"
+                required
               />
             </Form.Group>
 
@@ -128,6 +129,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="age"
                 placeholder="Enter your Age"
                 className="py-3 rounded person-input"
+                type="number"
                 required
               />
             </Form.Group>
@@ -144,6 +146,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 name="weight"
                 placeholder="Weight in lbs"
                 className="py-3 rounded person-input"
+                type="number"
                 required
               />
             </Form.Group>
@@ -158,8 +161,9 @@ const Home = ({ urlBase, people, setPeople }) => {
                 onChange={handleChange}
                 value={person.height}
                 name="height"
-                placeholder="Height in cm"
+                placeholder="Height in inches"
                 className="py-3 rounded person-input"
+                type="number"
                 required
               />
             </Form.Group>
