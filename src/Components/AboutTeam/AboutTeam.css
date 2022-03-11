@@ -7,11 +7,12 @@
 }
 
 .member-container {
-  margin: 20px 0 0 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
+  border: 1px, solid;
+  border-color: black;
 }
 
 .bold {
@@ -55,11 +56,12 @@
 
 .about-text {
   font-size: 24px;
-  width: 500px;
+  width: 450px;
 }
 
 .bio-stats {
   font-size: 15px;
+  margin-bottom: 5px;
 }
 
 .linkedin {
@@ -72,6 +74,9 @@
   width: 100px
 }
 
+.Rebecca {
+  margin: 0 -20px;
+}
 
 
 

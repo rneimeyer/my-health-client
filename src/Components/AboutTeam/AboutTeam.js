@@ -16,11 +16,11 @@ const AboutTeam = () => {
           <div className="about-text">
             <p className="bio-stats"><span className="bold">Age:</span> 26 </p>
             <p className="bio-stats">
-              Favorite Exercises/Sports: Surfing, Dancing, Yoga{" "}
+            <span className="bold">Favorite Exercises/Sports:</span> Surfing, Dancing, Yoga{" "}
             </p>
-            <p className="bio-stats">Training For: Fun</p>
+            <p className="bio-stats"><span className="bold">Training For:</span> Fun</p>
             <p className="bio-stats">
-              Background: I am a designer turned web developer who brings
+            <span className="bold">Background:</span> I am a designer turned web developer who brings
               enthusiasm, creativity and an exceptional work ethic to every
               team. I am trained as a full stack developer, and provide great
               value with my interpersonal skills, big-picture thinking,
@@ -29,7 +29,7 @@ const AboutTeam = () => {
               problems.{" "}
             </p>
             <p className="bio-stats">
-              Contribution: On this team project Lauren helped with the
+            <span className="bold">Contribution:</span> On this team project Lauren helped with the
               planning, backend models and routes, and deployment of the
               database. For the react app Lauren focused on the javascript
               functionality of the daily tracker form and updating the database
@@ -97,15 +97,15 @@ const AboutTeam = () => {
         </div>
         <div className="member-container">
           <img src={Rebecca} alt="Rebecca's image" className="headshot" />
-          <p className="member-name">Rebecca</p>
+          <p className="member-name Rebecca">Rebecca</p>
           <div className="about-text">
             <p className="bio-stats">Age: 27 </p>
             <p className="bio-stats">
-              Favorite Exercises/Sports:Hiking, Biking, Core
+            <span className="bold">Favorite Exercises/Sports:</span> Hiking, Biking, Core
             </p>
-            <p className="bio-stats">Training For: My health!</p>
+            <p className="bio-stats"><span className="bold">Training For:</span> My health!</p>
             <p className="bio-stats">
-              Background: As a merchandiser turned software engineer, I am
+            <span className="bold">Background:</span> As a merchandiser turned software engineer, I am
               highly customer-focused in everything I do. With my keen eye for
               detail, I strive to achieve the most efficient solution for any
               problem. I am a compassionate and collaborative team-member with a
@@ -113,7 +113,7 @@ const AboutTeam = () => {
               interactions.{" "}
             </p>
             <p className="bio-stats">
-              Contribution: On this team project Rebecca helped with the
+            <span className="bold">Contribution:</span> On this team project Rebecca helped with the
               planning, backend models and routes, and deployment of the
               database. For the react app Rebecca focused on the javascript
               functionality of the create new user form and updating the
@@ -145,19 +145,19 @@ const AboutTeam = () => {
           <div className="about-text">
             <p className="bio-stats">Age: 28</p>
             <p className="bio-stats">
-              Favorite Exercises/Sports: Volleyball, Tennis{" "}
+            <span className="bold">Favorite Exercises/Sports:</span> Volleyball, Tennis{" "}
             </p>
             <p className="bio-stats">
-              Training For: Volleyball Tournaments, Spartan Race
+            <span className="bold">Training For:</span> Volleyball Tournaments, Spartan Race
             </p>
             <p className="bio-stats">
-              Background:As an athlete, I've never found an application that was
+            <span className="bold">Background:</span> As an athlete, I've never found an application that was
               versatile and friendly enough to track all of my workouts, habits,
               and mood. As a software engineer, I am proud of the application
               and how much philosophy it is rooted in.
             </p>
             <p className="bio-stats">
-              Contribution: On this team project Kae helped with the planning,
+            <span className="bold">Contribution:</span> On this team project Kae helped with the planning,
               backend models and routes, and setup of the database. For the
               react app Kae focused on the routes, links and creating a
               functional nav bar. He also worked on the CSS and responsive
