@@ -12,3 +12,9 @@
 .site-footer a:hover {
   text-decoration: none;
 }
+
+.footer {
+  margin-bottom: 0;
+  position: absolute;
+  width: 100%;
+}

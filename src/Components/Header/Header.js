@@ -4,20 +4,22 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <div className="header">
+    <Navbar bg="white" expand="md" fixed="top">
     <Container>
-      <Navbar.Brand className="brand" href="#home"></Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto ">
-          <Link className="navbar" to="/">Home</Link>
-          <Link className="navbar" to="/daily-tracker">Daily Tracker</Link>
-          <Link className="navbar" to="/my-health">My Health</Link>
-          <Link className="navbar" to="/about-team">Meet the Team</Link>
+      <Navbar.Brand className="brand" href="/">MyHealthApp</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="me-auto">
+          <Link className="navbar-links" to="/">Home</Link>
+          <Link className="navbar-links" to="/daily-tracker">Daily Tracker</Link>
+          <Link className="navbar-links" to="/my-health">My Health</Link>
+          <Link className="navbar-links" to="/about-team">Meet the Team</Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
   </Navbar>
+  </div>
   );
 };
 
