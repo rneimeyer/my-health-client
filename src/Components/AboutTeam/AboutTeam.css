@@ -96,10 +96,14 @@
   .member-name {
     margin: 30px;
     margin-top: 200px;
+    width: 200px;
+    text-align: center;
   }
 
   .member-container {
     flex-wrap: none;
   }
+
+  
 
 }
