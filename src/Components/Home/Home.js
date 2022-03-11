@@ -83,7 +83,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 value={person.firstName}
                 name="firstName"
                 placeholder="First Name"
-                className="py-3 rounded "
+                className="py-3 rounded person-input"
                 required
               />
             </Form.Group>
@@ -98,7 +98,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 value={person.lastName}
                 name="lastName"
                 placeholder="Last Name"
-                className="py-3 rounded "
+                className="py-3 rounded person-input"
                 required
               />
             </Form.Group>
@@ -113,7 +113,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 value={person.email}
                 name="email"
                 placeholder="Enter your Email"
-                className="py-3 rounded "
+                className="py-3 rounded person-input"
               />
             </Form.Group>
 
@@ -127,7 +127,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 value={person.age}
                 name="age"
                 placeholder="Enter your Age"
-                className="py-3 rounded "
+                className="py-3 rounded person-input"
                 required
               />
             </Form.Group>
@@ -143,7 +143,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 value={person.weight}
                 name="weight"
                 placeholder="Weight in lbs"
-                className="py-3 rounded "
+                className="py-3 rounded person-input"
                 required
               />
             </Form.Group>
@@ -159,7 +159,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 value={person.height}
                 name="height"
                 placeholder="Height in cm"
-                className="py-3 rounded "
+                className="py-3 rounded person-input"
                 required
               />
             </Form.Group>
@@ -174,7 +174,7 @@ const Home = ({ urlBase, people, setPeople }) => {
                 value={person.mood}
                 name="mood"
                 placeholder="Enter your Mood"
-                className="py-3 rounded "
+                className="py-3 rounded person-input"
                 required
               />
             </Form.Group>

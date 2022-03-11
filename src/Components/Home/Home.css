@@ -1,64 +1,46 @@
-.home-h2{
-    margin-left:20px;
-    margin-top: 20px;
-
+.home-h2 {
+    margin: 0 auto;
+    text-align: center;
 }
 
-.home-form{
-    margin: 20px;
+.home-form {
+  margin: 20px;
 }
 
-.home-img{
-  width:20rem;
-  height: 18rem;
-  
+.home-img {
+    height: 18rem;
+  width: 25rem;
 }
 
-
-
-.register-btn{
-    padding: 10px 10px;
+.register-btn {
+  padding: 10px 10px;
 }
-
 
 @media only screen and (min-width: 768px) {
-    .home-img{
-        margin-top:40px;
-        height:35rem;
-        width:32rem;
-        margin-left:rem;
-    }
-    
-
-
+  .home-img {
+    margin-top: 40px;
+    height: 20rem;
+    width: 30rem;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .home-img {
+    margin-top: 100px;
+    height: 25rem;
+    width: 35rem;
+    margin-left: 38%;
+  }
 
-.home-img{
-    margin-top:60px;
-    height:55rem;
-    width:72rem;
-    margin-left: 35rem;
-}
+  .person-input.form-control {
+    width: 20rem;
+  }
 
-.form-control{
-    width: 30rem;
-}
+  .home-form {
+    margin-left: 22%;
+  }
 
-
-.home-form{
-    margin-left: 40rem;
-    
-
-}
-
-.register-btn{
+  .register-btn {
     padding: 10px 10px;
-}
-.home-h2{
-    margin-left:40rem;
-
-}
-
+  }
 }
