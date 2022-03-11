@@ -28,17 +28,6 @@
   }
 }
 
-/* @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .daily-form{
-        margin-right:2rem;
-        margin-top: 50px;
-     }
-     .dumbbell-img{
-         width: 500px;
-         margin-left: 8rem;
-     }
-} */
-
 @media only screen and (min-width: 768px) {
   .daily-tracker-body {
     display: grid;
@@ -61,7 +50,8 @@
 
   .tracker-form {
     grid-column: 2/3;
-    display: grid;
+    /* display: grid; */
+    margin: 0 10%;
   }
 
   .daily-form {
@@ -71,11 +61,11 @@
   }
 
   .daily-tracker-form {
-    width: 25rem;
+    width: 40rem;
   }
 
   .daily-btn {
-    margin-left: 12rem;
+    margin-left: 18rem;
   }
 
   .daily-h2 {
