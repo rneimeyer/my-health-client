@@ -39,7 +39,6 @@ const WeeklyView = ({ urlBase, user }) => {
       <Table style={{width: '18rem'}}>
       <thead>
         <tr>
-        
         <th>Activities</th>
         <th> Intensity</th>
         </tr>
