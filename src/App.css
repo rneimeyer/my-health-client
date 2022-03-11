@@ -1,10 +1,10 @@
 main {
-    margin-top: 100px;
-    min-height: 70vh;
+  margin-top: 100px;
+  min-height: 70vh;
 }
 
 @media only screen and (min-width: 768px) {
-    main {
-        margin-top: 150px
-    }
+  main {
+    margin-top: 150px;
+  }
 }

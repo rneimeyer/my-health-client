@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Graduate&display=swap");
 
 .navbar {
-    font-family: "Graduate", cursive;
+  font-family: "Graduate", cursive;
 }
 .header {
-    width: 100%;
+  width: 100%;
 }
 .navbar-links {
   font-size: 20px;
@@ -13,13 +13,13 @@
   color: blueviolet;
 }
 .navbar-brand {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 @media only screen and (min-width: 768px) {
-    .navbar-brand {
-        font-size: 35px;
-    }
+  .navbar-brand {
+    font-size: 35px;
+  }
   .me-auto {
     position: fixed;
     right: 0;
@@ -35,8 +35,8 @@
 }
 
 @media only screen and (min-width: 1024px) {
-    .navbar-links {
-        padding: 25px;
-        font-size: 20px;
-      }
+  .navbar-links {
+    padding: 25px;
+    font-size: 20px;
+  }
 }

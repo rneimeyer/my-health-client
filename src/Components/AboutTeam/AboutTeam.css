@@ -1,7 +1,6 @@
-
 @font-face {
   font-family: AVENGEANCE-HEROIC-AVENGER-BI;
-  src: url('./../../assets/AVENGEANCE-HEROIC-AVENGER-BI.ttf');
+  src: url("./../../assets/AVENGEANCE-HEROIC-AVENGER-BI.ttf");
   font-size: 100%;
 }
 
@@ -21,7 +20,6 @@
   font-size: 4em;
   margin: 10px;
 }
-
 
 .about-section {
   display: flex;
@@ -45,11 +43,9 @@
   font-family: AVENGEANCE-HEROIC-AVENGER-BI;
 }
 
-
 .about {
   margin-top: 10px;
 }
-
 
 .about-text {
   font-size: 24px;
@@ -63,23 +59,19 @@
 
 .linkedin {
   height: 100px;
-  width: 100px
+  width: 100px;
 }
 
 .github {
   height: 100px;
-  width: 100px
+  width: 100px;
 }
 
 .Rebecca {
   margin: 0 -20px;
 }
 
-
-
-
 @media only screen and (min-width: 768px) {
-
   .member-name {
     margin: 30px;
     margin-top: 200px;
@@ -88,11 +80,9 @@
   .member-container {
     flex-wrap: none;
   }
-
 }
 
 @media only screen and (min-width: 1024px) {
-
   .member-name {
     margin: 30px;
     margin-top: 200px;
@@ -103,7 +93,4 @@
   .member-container {
     flex-wrap: none;
   }
-
-  
-
 }
