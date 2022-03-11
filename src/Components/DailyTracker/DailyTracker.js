@@ -13,6 +13,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
   const [length, setLength] = useState("");
   const [intensity, setIntensity] = useState("");
   const [allActivities, setAllActivities] = useState([]);
+  const [lift, setLift] = useState();
 
   const emailHandleChange = (event) => {
     event.preventDefault();
@@ -91,7 +92,8 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
         .then(() => setEmail(""))
         .then(() => setExercise(""))
         .then(() => setDate(""))
-        .then(() => setLength(""));
+        .then(() => setLength(""))
+        .then(() => lift());
     }
   };
 
@@ -106,8 +108,8 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
         <Form
           className="rounded p-4 p-sm-5"
           className="daily-form"
-          onSubmit={handleSubmit}>
-
+          onSubmit={handleSubmit}
+        >
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>
               <h5>Email</h5>
@@ -134,7 +136,10 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3 daily-tracker-form" controlId="formBasicDropdown">
+          <Form.Group
+            className="mb-3 daily-tracker-form"
+            controlId="formBasicDropdown"
+          >
             <Form.Label>
               <h5>What activity did you do?</h5>
             </Form.Label>
@@ -264,21 +269,21 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
         {verification === false ? (
           <div></div>
         ) : (
-          <div>
+          <div className="unverified">
             <h1>
               We do not have record of your email. Please create an account to
               continue.
             </h1>
           </div>
         )}
+        <div className="dumbbell-container">
+          <img src={Dumbbell} alt="dumbbell image" className="dumbbell-img" />
+        </div>
       </div>
 
-      <div className="dumbbell-container">
-        <img src={Dumbbell} alt="dumbbell image" className="dumbbell-img" />
-        <p className="image-credit">
-          Image Credit: Author: sigit sulasmoko, Website:
-          https://pngtree.com/sigit-sulasmoko_14989530?type=1
-        </p>
+      <div className="image-credit">
+        Image Credit: Author: sigit sulasmoko, Website:
+        https://pngtree.com/sigit-sulasmoko_14989530?type=1
       </div>
     </div>
   );
