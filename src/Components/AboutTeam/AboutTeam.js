@@ -99,7 +99,7 @@ const AboutTeam = () => {
           <img src={Rebecca} alt="Rebecca's image" className="headshot" />
           <p className="member-name Rebecca">Rebecca</p>
           <div className="about-text">
-            <p className="bio-stats">Age: 27 </p>
+            <p className="bio-stats"><span className="bold">Age:</span> 27 </p>
             <p className="bio-stats">
             <span className="bold">Favorite Exercises/Sports:</span> Hiking, Biking, Core
             </p>
@@ -143,7 +143,7 @@ const AboutTeam = () => {
           <img src={Kae} alt="Kae's image" className="headshot" />
           <p className="member-name">Kae</p>
           <div className="about-text">
-            <p className="bio-stats">Age: 28</p>
+            <p className="bio-stats"><span className="bold">Age:</span> 28</p>
             <p className="bio-stats">
             <span className="bold">Favorite Exercises/Sports:</span> Volleyball, Tennis{" "}
             </p>
