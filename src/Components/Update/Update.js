@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Form} from 'react-bootstrap'
+import {Form, Card,Button} from 'react-bootstrap'
 
 const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
 
@@ -12,6 +12,18 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
+
+  function changeDate(date) {
+    const d = new Date(date);
+    let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][d.getMonth()];
+    let str = month + ' ' + d.getDate() + ' ' + d.getFullYear();
+    return (
+      str
+    )
+  }
+
+  let updatedDate = changeDate(activity.date);
 
   const dateHandleChange = (event) => {
     event.preventDefault();
@@ -61,49 +73,55 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
   }
 
   return (
-    <div> 
+    <div>
+      <Card>
       <h2>Update your Activity</h2>
       <p>
         Please update your activity below!
       </p>
       <Form onSubmit={updatePage}>
           <div className="date">
-          <input
+          <Form.Control
             onChange={dateHandleChange}
             name="date"
             value={date}
-            placeholder={activity.date} required
-          ></input>
+            placeholder={updatedDate} required
+          ></Form.Control>
         </div>
         <br />
         <div className="activity">
           <label> What activity did you do? </label>
-          <input onChange={activityHandleChange} 
+          <Form.Control onChange={activityHandleChange} 
             name="exercise"
             value={exercise}
             placeholder={activity.exercise} required
-          ></input>
+          ></Form.Control>
         </div>
         <div className="length">
           <label>How long did you work out (in minutes)?</label>
-          <input onChange={lengthHandleChange} 
+          <Form.Control onChange={lengthHandleChange} 
             name="length"
             value={length}
             placeholder={activity.length} required
-          ></input>
+          ></Form.Control>
         </div>
         <br />
         <div className="intensity">
           <label> How intense was your activity? </label>
-          <input onChange={intensityHandleChange}
+          <Form.Control onChange={intensityHandleChange}
             name="intensity"
             value={intensity}
             placeholder={activity.intensity} required
-          ></input>
+          ></Form.Control>
         </div>
         <br />
-        <input className="submit-button" type="submit" value="Update"></input>
+        <Button variant="primary"
+              type="submit" className="submit-button" type="submit" value="Update">Update</Button>
       </Form>
+        
+        
+        </Card> 
+     
     </div>
   );
 };
