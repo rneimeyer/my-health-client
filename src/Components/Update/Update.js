@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
-import {Form, Card,Button} from 'react-bootstrap'
+import { useState } from "react";
+import { Form, Card, Button } from "react-bootstrap";
 
 const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
-
-    console.log(urlBase)
+  console.log(urlBase);
   const [date, setDate] = useState("");
   const [exercise, setExercise] = useState("");
   const [length, setLength] = useState("");
@@ -12,15 +11,24 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
-
   function changeDate(date) {
     const d = new Date(date);
-    let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][d.getMonth()];
-    let str = month + ' ' + d.getDate() + ' ' + d.getFullYear();
-    return (
-      str
-    )
+    let month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ][d.getMonth()];
+    let str = month + " " + d.getDate() + " " + d.getFullYear();
+    return str;
   }
 
   let updatedDate = changeDate(activity.date);
@@ -53,7 +61,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
       length: length,
       intensity: intensity,
     };
-    console.log(data)
+    console.log(data);
     let options = {
       method: "PUT",
       headers: {
@@ -64,64 +72,72 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
     fetch(`${urlBase}/activity/${activity._id}`, options)
       .then((res) => res.json())
       .then((data) => setActivity(data))
-      .then(()=>setView(false))
+      .then(() => setView(false));
   };
 
   const updatePage = (event) => {
-      handleUpdate(event)
-      handleSubmit(event)
-  }
+    handleUpdate(event);
+    handleSubmit(event);
+  };
 
   return (
     <div>
       <Card>
-      <h2>Update your Activity</h2>
-      <p>
-        Please update your activity below!
-      </p>
-      <Form onSubmit={updatePage}>
+        <h2>Update your Activity</h2>
+        <p>Please update your activity below!</p>
+        <Form onSubmit={updatePage}>
           <div className="date">
-          <Form.Control
-            onChange={dateHandleChange}
-            name="date"
-            value={date}
-            placeholder={updatedDate} required
-          ></Form.Control>
-        </div>
-        <br />
-        <div className="activity">
-          <label> What activity did you do? </label>
-          <Form.Control onChange={activityHandleChange} 
-            name="exercise"
-            value={exercise}
-            placeholder={activity.exercise} required
-          ></Form.Control>
-        </div>
-        <div className="length">
-          <label>How long did you work out (in minutes)?</label>
-          <Form.Control onChange={lengthHandleChange} 
-            name="length"
-            value={length}
-            placeholder={activity.length} required
-          ></Form.Control>
-        </div>
-        <br />
-        <div className="intensity">
-          <label> How intense was your activity? </label>
-          <Form.Control onChange={intensityHandleChange}
-            name="intensity"
-            value={intensity}
-            placeholder={activity.intensity} required
-          ></Form.Control>
-        </div>
-        <br />
-        <Button variant="primary"
-              type="submit" className="submit-button" type="submit" value="Update">Update</Button>
-      </Form>
-        
-        
-        </Card> 
-     
+            <Form.Control
+              onChange={dateHandleChange}
+              name="date"
+              value={date}
+              placeholder={updatedDate}
+              required
+            ></Form.Control>
+          </div>
+          <br />
+          <div className="activity">
+            <label> What activity did you do? </label>
+            <Form.Control
+              onChange={activityHandleChange}
+              name="exercise"
+              value={exercise}
+              placeholder={activity.exercise}
+              required
+            ></Form.Control>
+          </div>
+          <div className="length">
+            <label>How long did you work out (in minutes)?</label>
+            <Form.Control
+              onChange={lengthHandleChange}
+              name="length"
+              value={length}
+              placeholder={activity.length}
+              required
+            ></Form.Control>
+          </div>
+          <br />
+          <div className="intensity">
+            <label> How intense was your activity? </label>
+            <Form.Control
+              onChange={intensityHandleChange}
+              name="intensity"
+              value={intensity}
+              placeholder={activity.intensity}
+              required
+            ></Form.Control>
+          </div>
+          <br />
+          <Button
+            variant="primary"
+            type="submit"
+            className="submit-button"
+            value="Update"
+          >
+            Update
+          </Button>
+        </Form>
+      </Card>
     </div>
   );
 };
