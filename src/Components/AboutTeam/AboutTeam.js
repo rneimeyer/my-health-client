@@ -11,7 +11,7 @@ const AboutTeam = () => {
       <h2 className="team-h2">Get to know team Lark! 🐣</h2>
       <div className="about-section">
         <div className="member-container">
-          <img src={Lauren} alt="Lauren's image" className="headshot" />
+          <img src={Lauren} alt="Lauren's headshot" className="headshot" />
           <h2 className="member-name">Lauren</h2>
           <div className="about-text">
             <p className="bio-stats"><span className="bold">Age:</span> 26 </p>
@@ -39,15 +39,15 @@ const AboutTeam = () => {
             <p>
               <a href="https://www.linkedin.com/in/laurenleighcolvin/">
                 <img
-                  className="link-icons"
-                  className="linkedin"
+                  className="link-icons linkedin"
+                  alt="linkedin"
                   src="https://brandlogos.net/wp-content/uploads/2016/06/linkedin-logo.png"
                 ></img>
               </a>
               <a href="https://github.com/LaurenColvin">
                 <img
-                  className="link-icons"
-                  className="github"
+                  className="link-icons github"
+                  alt="github"
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                 ></img>
               </a>
@@ -56,7 +56,7 @@ const AboutTeam = () => {
         </div>
 
         <div className="member-container">
-          <img src={Anju} alt="Anju's image" className="headshot" />
+          <img src={Anju} alt="Anju's headshot" className="headshot" />
           <p className="member-name">Anju</p>
           <div className="about-text">
             <p className="bio-stats"><span className="bold">Age:</span> 27 </p>
@@ -80,15 +80,15 @@ const AboutTeam = () => {
             <p className="bio-stats">
               <a href="https://www.linkedin.com/in/anju-dhungana/">
                 <img
-                  className="link-icons"
-                  className="linkedin"
+                  className="link-icons linkedin"
+                  alt="linkedin"
                   src="https://brandlogos.net/wp-content/uploads/2016/06/linkedin-logo.png"
                 ></img>
               </a>
               <a href="https://github.com/anjuu123">
                 <img
-                  className="link-icons"
-                  className="github"
+                  className="link-icons github"
+                  alt="github"
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                 ></img>
               </a>
@@ -96,7 +96,7 @@ const AboutTeam = () => {
           </div>
         </div>
         <div className="member-container">
-          <img src={Rebecca} alt="Rebecca's image" className="headshot" />
+          <img src={Rebecca} alt="Rebecca's headshot" className="headshot" />
           <p className="member-name Rebecca">Rebecca</p>
           <div className="about-text">
             <p className="bio-stats"><span className="bold">Age:</span> 27 </p>
@@ -124,15 +124,15 @@ const AboutTeam = () => {
             <p>
               <a href="https://www.linkedin.com/in/rebecca-neimeyer/">
                 <img
-                  className="link-icons"
-                  className="linkedin"
+                  className="link-icons linkedin"
+                  alt="linkedin"
                   src="https://brandlogos.net/wp-content/uploads/2016/06/linkedin-logo.png"
                 ></img>
               </a>
               <a href="https://github.com/rneimeyer">
                 <img
-                  className="link-icons"
-                  className="github"
+                  className="link-icons github"
+                  alt="github"
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                 ></img>
               </a>
@@ -140,7 +140,7 @@ const AboutTeam = () => {
           </div>
         </div>
         <div className="member-container">
-          <img src={Kae} alt="Kae's image" className="headshot" />
+          <img src={Kae} alt="Kae's headshot" className="headshot" />
           <p className="member-name">Kae</p>
           <div className="about-text">
             <p className="bio-stats"><span className="bold">Age:</span> 28</p>
@@ -167,15 +167,15 @@ const AboutTeam = () => {
             <p>
               <a href="https://www.linkedin.com/in/kae-saetern/">
                 <img
-                  className="link-icons"
-                  className="linkedin"
+                  className="link-icons linkedin"
+                  alt="linkedin"
                   src="https://brandlogos.net/wp-content/uploads/2016/06/linkedin-logo.png"
                 ></img>
               </a>
               <a href="https://github.com/kaesae">
                 <img
-                  className="link-icons"
-                  className="github"
+                  className="link-icons github"
+                  alt="github"
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                 ></img>
               </a>
