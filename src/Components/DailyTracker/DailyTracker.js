@@ -13,7 +13,6 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
   const [length, setLength] = useState("");
   const [intensity, setIntensity] = useState("");
   const [allActivities, setAllActivities] = useState([]);
-  const [lift, setLift] = useState();
 
   const emailHandleChange = (event) => {
     event.preventDefault();
@@ -93,7 +92,6 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
         .then(() => setExercise(""))
         .then(() => setDate(""))
         .then(() => setLength(""))
-        .then(() => lift());
     }
   };
 
