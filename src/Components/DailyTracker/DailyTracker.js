@@ -118,6 +118,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
               onChange={emailHandleChange}
               name="email"
               placeholder="Email"
+              value={email}
               className="py-3 daily-tracker-form"
               required
             />
@@ -131,6 +132,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
               onChange={dateHandleChange}
               name="date"
               placeholder="Date"
+              value={date}
               className="py-3 daily-tracker-form"
               required
             />
@@ -209,6 +211,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
               onChange={lengthHandleChange}
               name="length"
               placeholder="Length in minutes"
+              value={length}
               className="py-3 daily-tracker-form"
               required
             />
