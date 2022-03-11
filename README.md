@@ -11,7 +11,7 @@
 | Day 3 | CSS Styling and Responsive Design    | Complete   |
 | Day 4 | MVP & Bug Fixes & Adding Seed Data   | Complete   |
 | Day 4 | Final Touches and deploying frontend | Complete   |
-| Day 5 | Present                              | Incomplete |
+| Day 5 | Present                              | Complete   |
 
 ## Project Description
 
@@ -158,3 +158,7 @@ const putActivity = (activity) => {
 
 **RESOLUTION**:
 We made the number input forms number type to eliminate the issue.
+
+
+**Citations**:
+Hover Effect - Web Dev Simplified on Youtube [https://www.youtube.com/watch?v=YszONjKpgg4]
