@@ -1,36 +1,28 @@
 .card {
-    display: inline-flex;
-    border: 2px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
-    width: 43%;
-   margin-left: 25px;
-   margin-top: 20px;
-   margin-bottom: 20px;
-  }
+  display: inline-flex;
+  border: 2px solid #eee;
+  box-shadow: 0 2px 2px #ccc;
+  width: 43%;
+  margin-left: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
- .card-p{
-     padding:5px;
-     font-size: 18px;
- }
+.card-p {
+  padding: 5px;
+  font-size: 18px;
+}
 
- .daily-h3{
-     text-align: center;
- }
+.daily-h3 {
+  text-align: center;
+}
 
- .btn-del{
-     background-color: blueviolet;
- }
+.btn-del {
+  background-color: blueviolet;
+}
 
-
- @media only screen and (min-width: 768px) and (max-width: 1023px) {
-
-  .card{
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .card {
     width: 45%;
-    
   }
-
- }
-
-
-
- 
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./DailyTracker.css";
 import Dumbbell from "../../assets/dumbell.png";
@@ -106,8 +106,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
 
       <div className="tracker-form">
         <Form
-          className="rounded p-4 p-sm-5"
-          className="daily-form"
+          className="rounded p-4 p-sm-5 daily-form"
           onSubmit={handleSubmit}
         >
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -280,7 +279,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
           </div>
         )}
         <div className="dumbbell-container">
-          <img src={Dumbbell} alt="dumbbell image" className="dumbbell-img" />
+          <img src={Dumbbell} alt="dumbbell" className="dumbbell-img" />
         </div>
       </div>
 

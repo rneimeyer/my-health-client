@@ -1,6 +1,6 @@
 .home-h2 {
-    margin: 0 auto;
-    text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .home-form {
@@ -8,7 +8,7 @@
 }
 
 .home-img {
-    height: 18rem;
+  height: 18rem;
   width: 25rem;
 }
 
@@ -21,7 +21,7 @@
     margin-top: 100px;
     height: 15rem;
     width: 25rem;
-    margin-left: 45%
+    margin-left: 45%;
   }
   .person-input.form-control {
     width: 18rem;

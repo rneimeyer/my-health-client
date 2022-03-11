@@ -6,7 +6,6 @@ import "./Home.css";
 import Family from "../../assets/family.jpg";
 
 const Home = ({ urlBase, people, setPeople }) => {
-
   const [person, setPerson] = useState({
     firstName: "",
     lastName: "",
@@ -16,8 +15,8 @@ const Home = ({ urlBase, people, setPeople }) => {
     height: Number,
     mood: "",
   });
-  
-  const [verification, setVerification] = useState(false)
+
+  const [verification, setVerification] = useState(false);
 
   const handleChange = (event) => {
     event.persist();
@@ -35,30 +34,31 @@ const Home = ({ urlBase, people, setPeople }) => {
     let emails = people.map((person) => person.email);
     let check = emails.includes(person.email);
     if (check === true) {
-      setVerification(true)
+      setVerification(true);
     } else {
-      setVerification(false)
-    fetch(`${urlBase}/person`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(person),
-    })
-      .then(() => fetch(`${urlBase}/person`))
-      .then((response) => response.json())
-      .then((data) => setPeople(data.person))
-      .then(() =>
-        setPerson({
-          firstName: "",
-          lastName: "",
-          email: "",
-          age: Number,
-          weight: Number,
-          height: Number,
-          mood: "",
-        })
-      );}
+      setVerification(false);
+      fetch(`${urlBase}/person`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(person),
+      })
+        .then(() => fetch(`${urlBase}/person`))
+        .then((response) => response.json())
+        .then((data) => setPeople(data.person))
+        .then(() =>
+          setPerson({
+            firstName: "",
+            lastName: "",
+            email: "",
+            age: Number,
+            weight: Number,
+            height: Number,
+            mood: "",
+          })
+        );
+    }
   };
 
   return (

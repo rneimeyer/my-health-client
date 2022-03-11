@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import WeeklyView from "./../WeeklyView/WeeklyView";
 import DailyView from "./../DailyView/DailyView";
-import {Form, Button} from 'react-bootstrap'
-import './MyHealth.css'
+import { Form, Button } from "react-bootstrap";
+import "./MyHealth.css";
 
 export default function MyHealth({ urlBase, people, setPeople }) {
   // creating use state for user
@@ -31,7 +31,7 @@ export default function MyHealth({ urlBase, people, setPeople }) {
     <>
       <h3 className="health-h3">My Health Page</h3>
       {/* returning profile list of the user */}
-      <Form onSubmit={handleSubmit}className="health-form">
+      <Form onSubmit={handleSubmit} className="health-form">
         <div className="email">
           <Form.Control
             onChange={emailHandleChange}
@@ -40,8 +40,8 @@ export default function MyHealth({ urlBase, people, setPeople }) {
           ></Form.Control>
         </div>
         <Button variant="primary" type="submit" className="btn-submit">
-    Submit
-  </Button>
+          Submit
+        </Button>
       </Form>
       {user.length === 0 ? (
         <div></div>
@@ -54,7 +54,11 @@ export default function MyHealth({ urlBase, people, setPeople }) {
             <li>Email : {user.email}</li>
           </ul>
           <WeeklyView urlBase={urlBase} user={user} />
-          <DailyView urlBase={urlBase} user={user} handleSubmit={handleSubmit}/>
+          <DailyView
+            urlBase={urlBase}
+            user={user}
+            handleSubmit={handleSubmit}
+          />
         </div>
       )}
     </>
