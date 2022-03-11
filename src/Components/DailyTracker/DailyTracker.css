@@ -1,4 +1,8 @@
-@import url('https://fonts.google.com/specimen/Shadows+Into+Light');
+@font-face {
+  font-family: Shadows Into Light;
+  src: url('./../../assets/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf');
+  font-size: 100%;
+}
 
 @media only screen and (max-width: 767px) {
   .daily-h2 {
@@ -40,7 +44,9 @@
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 80px 40px 650px 750px;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Shadows Into Light';
+    font-size: 30px;
+    letter-spacing: 2px;
   }
 
   .tagline {
