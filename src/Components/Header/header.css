@@ -1,31 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Graduate&display=swap");
 
-.navbar{
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    color: blueviolet;
-    font-family: 'Graduate', cursive;
+.navbar {
+    font-family: "Graduate", cursive;
+}
+.header {
+    width: 100%;
+}
+.navbar-links {
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: blueviolet;
+}
+.navbar-brand {
+    font-size: 25px;
 }
 
-
+@media only screen and (min-width: 768px) {
+    .navbar-brand {
+        font-size: 35px;
+    }
+  .me-auto {
+    position: fixed;
+    right: 0;
+  }
+  .navbar-links {
+    padding: 5px;
+    font-size: 16px;
+  }
+  .navbar-links:hover {
+    background-color: purple;
+    color: #fff;
+  }
+}
 
 @media only screen and (min-width: 1024px) {
-.me-auto{
-    position:fixed;
-    right: 0;
-    
-}
-    .navbar{
-       margin-right: 80px;
-       padding: 35px;
-       
-    }
-    .navbar:hover{
-        background-color: purple;
-        color: #fff;
-        
-    }
-    
-    
+    .navbar-links {
+        padding: 25px;
+        font-size: 20px;
+      }
 }
