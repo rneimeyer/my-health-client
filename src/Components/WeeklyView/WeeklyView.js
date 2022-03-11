@@ -40,7 +40,7 @@ const WeeklyView = ({ urlBase, user }) => {
       <thead>
         <tr>
         <th>Activities</th>
-        <th> Intensity</th>
+        <th>Average Intensity</th>
         </tr>
         </thead>
         <tbody>
