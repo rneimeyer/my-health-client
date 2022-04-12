@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import "./header.css";
+import "./Header.css";
 
 const Header = () => {
   return (
     <div className="header">
       <Navbar bg="white" expand="md" fixed="top">
         <Container>
-          <Navbar.Brand className="brand" href="/">
-            MyHealthApp
+          <Navbar.Brand className="brand">
+            <Link className="title-link" to="/">
+              MyHealthApp
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
