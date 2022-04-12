@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./DailyTracker.css";
-import Dumbbell from "../../assets/dumbell.png";
 
 const DailyTracker = ({ urlBase, people, setPeople }) => {
   const [verification, setVerification] = useState(false);
@@ -103,53 +102,35 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
       <p className="tagline">
         Please input your email and the date to track your activity today!
       </p>
-
       <div className="tracker-form">
-        <Form
-          className="rounded p-4 p-sm-5 daily-form"
-          onSubmit={handleSubmit}
-        >
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>
-              <h5>Email</h5>
-            </Form.Label>
+        <Form className="daily-form" onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
             <Form.Control
               onChange={emailHandleChange}
               name="email"
               placeholder="Email"
               value={email}
-              className="py-3 daily-tracker-form"
               required
             />
           </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicDate">
-            <Form.Label>
-              <h5>Date</h5>
-            </Form.Label>
+          <Form.Group>
+            <Form.Label>Date</Form.Label>
             <Form.Control
               onChange={dateHandleChange}
               name="date"
+              type="date"
               placeholder="Date"
               value={date}
-              className="py-3 daily-tracker-form"
               required
             />
           </Form.Group>
-
-          <Form.Group
-            className="mb-3 daily-tracker-form"
-            controlId="formBasicDropdown"
-          >
-            <Form.Label>
-              <h5>What activity did you do?</h5>
-            </Form.Label>
-            <Form.Select
-              onChange={activityHandleChange}
-              className="py-3 daily-tracker-form"
-              required
-            >
-              <option className="option" name="exercise" value=""></option>
+          <Form.Group>
+            <Form.Label>What activity did you do?</Form.Label>
+            <Form.Select onChange={activityHandleChange} required>
+              <option className="option" name="exercise" value="">
+                Activity
+              </option>
               <option className="option" name="exercise" value="walk">
                 Walk
               </option>
@@ -193,7 +174,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
                 Back
               </option>
               <option
-                className="option daily-tracker-form"
+                className="option"
                 name="exercise"
                 value="full-body-strength"
               >
@@ -201,31 +182,27 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
               </option>
             </Form.Select>
           </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicLength">
-            <Form.Label>
-              <h5>Duration</h5>
-            </Form.Label>
+          <Form.Group>
+            <Form.Label>Duration</Form.Label>
             <Form.Control
               onChange={lengthHandleChange}
               name="length"
+              type="number"
               placeholder="Length in minutes"
               value={length}
-              className="py-3 daily-tracker-form"
               required
             />
           </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicIntensity">
-            <Form.Label>
-              <h5>How intense was your activity?</h5>{" "}
-            </Form.Label>
+          <Form.Group>
+            <Form.Label>How intense was your activity?</Form.Label>
             <Form.Select
               onChange={intensityHandleChange}
-              className="option py-3 daily-tracker-form"
+              className="option"
               required
             >
-              <option className="option " name="intensity" value="0"></option>
+              <option className="option" name="intensity" value="0">
+                Intensity
+              </option>
               <option className="option" name="intensity" value="1">
                 1
               </option>
@@ -258,13 +235,7 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
               </option>
             </Form.Select>
           </Form.Group>
-
-          <Button
-            variant="primary"
-            type="submit"
-            value=" Submit"
-            className="daily-btn"
-          >
+          <Button type="submit" value="Submit" className="daily-btn">
             Submit
           </Button>
         </Form>
@@ -278,14 +249,6 @@ const DailyTracker = ({ urlBase, people, setPeople }) => {
             </h1>
           </div>
         )}
-        <div className="dumbbell-container">
-          <img src={Dumbbell} alt="dumbbell" className="dumbbell-img" />
-        </div>
-      </div>
-
-      <div className="image-credit">
-        Image Credit: Author: sigit sulasmoko, Website:
-        https://pngtree.com/sigit-sulasmoko_14989530?type=1
       </div>
     </div>
   );
