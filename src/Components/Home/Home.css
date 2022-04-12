@@ -1,43 +1,55 @@
 .home-h2 {
   margin: 0 auto;
   text-align: center;
+  color: #f66d73;
 }
 
 .home-form {
-  margin: 20px;
+  margin: 0 auto;
+  padding: 15px;
+  width: 80%;
+}
+
+.home-img-container {
+  justify-self: center;
 }
 
 .home-img {
-  height: 18rem;
-  width: 25rem;
+  width: 60vw;
+  justify-self: center;
+  padding: 5px;
 }
 
-.register-btn {
-  padding: 10px 10px;
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.label {
+  margin-bottom: 0;
 }
 
 @media only screen and (min-width: 768px) {
   .home-img {
-    margin-top: 100px;
-    height: 15rem;
-    width: 25rem;
-    margin-left: 45%;
+    width: 40vw;
   }
   .person-input.form-control {
     width: 18rem;
   }
+  .home-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-h2 {
+    font-size: 35px;
+  }
+  .home-form {
+    margin-left: 15%;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-  .home-img {
-    margin-top: 100px;
-    height: 25rem;
-    width: 35rem;
-    margin-left: 38%;
-  }
-
   .person-input.form-control {
-    width: 20rem;
+    width: 25rem;
   }
 
   .home-form {
@@ -46,5 +58,8 @@
 
   .register-btn {
     padding: 10px 10px;
+  }
+  .home-h2 {
+    font-size: 45px;
   }
 }

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./Home.css";
-import Family from "../../assets/family.jpg";
+import Yoga from "../../assets/yoga-mat.png";
 
 const Home = ({ urlBase, people, setPeople }) => {
   const [person, setPerson] = useState({
@@ -64,137 +64,99 @@ const Home = ({ urlBase, people, setPeople }) => {
   return (
     <div className="home">
       <h2 className="home-h2">Register to get started!</h2>
-
-      <div className="row">
-        <div className=" color-overlay  justify-content-center col-md-4 align-item-center ml-4">
-          <Form
-            className="rounded p-4 p-lg-5 ml-2 home-form"
-            onSubmit={handleSubmit}
-          >
-            {/* firstname */}
-            <Form.Group className="mb-2 py-3" controlId="formBasicName">
-              <Form.Label className="py-1 label">
-                <h5>First Name</h5>{" "}
-              </Form.Label>
-
-              <Form.Control
-                onChange={handleChange}
-                value={person.firstName}
-                name="firstName"
-                placeholder="First Name"
-                className="py-3 rounded person-input"
-                required
-              />
-            </Form.Group>
-
-            {/* lastname */}
-            <Form.Group className="mb-2" controlId="formBasicName">
-              <Form.Label className="py-1 label">
-                <h5>Last Name</h5>{" "}
-              </Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                value={person.lastName}
-                name="lastName"
-                placeholder="Last Name"
-                className="py-3 rounded person-input"
-                required
-              />
-            </Form.Group>
-
-            {/* email */}
-            <Form.Group className="mb-2" controlId="formBasicEmail">
-              <Form.Label className="py-1 label">
-                <h5>Email</h5>{" "}
-              </Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                value={person.email}
-                name="email"
-                placeholder="Enter your Email"
-                className="py-3 rounded person-input"
-                type="email"
-                required
-              />
-            </Form.Group>
-
-            {/* age */}
-            <Form.Group className="mb-2" controlId="formBasicAge">
-              <Form.Label className="py-1 label">
-                <h5>Age</h5>{" "}
-              </Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                value={person.age}
-                name="age"
-                placeholder="Enter your Age"
-                className="py-3 rounded person-input"
-                type="number"
-                required
-              />
-            </Form.Group>
-
-            {/* weight */}
-
-            <Form.Group className="mb-2" controlId="formBasicWeight">
-              <Form.Label className="py-1 label">
-                <h5>Weight</h5>{" "}
-              </Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                value={person.weight}
-                name="weight"
-                placeholder="Weight in lbs"
-                className="py-3 rounded person-input"
-                type="number"
-                required
-              />
-            </Form.Group>
-
-            {/* height */}
-
-            <Form.Group className="mb-2" controlId="formBasicHeight">
-              <Form.Label className="py-1 label">
-                <h5>Height</h5>
-              </Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                value={person.height}
-                name="height"
-                placeholder="Height in inches"
-                className="py-3 rounded person-input"
-                type="number"
-                required
-              />
-            </Form.Group>
-
-            {/* mood */}
-            <Form.Group className="mb-2" controlId="formBasicMood">
-              <Form.Label className="py-1 label">
-                <h5>Mood</h5>
-              </Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                value={person.mood}
-                name="mood"
-                placeholder="Enter your Mood"
-                className="py-3 rounded person-input"
-                required
-              />
-            </Form.Group>
-
-            <Button
-              variant="primary"
-              type="submit"
-              value=" Submit"
-              className="register-btn"
-            >
-              Submit
-            </Button>
-          </Form>
-        </div>
-        <div className="col-sm-3 ">
-          <img className="home-img" src={Family} alt="family-workout" />
+      <div className="home-container">
+        <Form className="home-form" onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label className="label">First Name</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={person.firstName}
+              name="firstName"
+              placeholder="First Name"
+              className="person-input"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="label">Last Name</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={person.lastName}
+              name="lastName"
+              placeholder="Last Name"
+              className="person-input"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="label">Email</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={person.email}
+              name="email"
+              placeholder="Email"
+              className="person-input"
+              type="email"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="label">Age</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={person.age}
+              name="age"
+              placeholder="Age in years"
+              className="person-input"
+              type="number"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="label">Weight</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={person.weight}
+              name="weight"
+              placeholder="Weight in lbs"
+              className="person-input"
+              type="number"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="label">Height</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={person.height}
+              name="height"
+              placeholder="Height in inches"
+              className="person-input"
+              type="number"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="label">Mood</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={person.mood}
+              name="mood"
+              placeholder="Ex: happy, excited, nervous, etc."
+              className="person-input"
+              required
+            />
+          </Form.Group>
+          <Button type="submit" value="Submit" className="register-btn">
+            Submit
+          </Button>
+        </Form>
+        <div className="home-img-container">
+          <img
+            className="home-img"
+            src={Yoga}
+            alt="yoga mat with weights, resistance bands, and water bottle"
+          />
         </div>
       </div>
       {verification === false ? (
