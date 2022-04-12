@@ -3,6 +3,7 @@ import WeeklyView from "./../WeeklyView/WeeklyView";
 import DailyView from "./../DailyView/DailyView";
 import { Form, Button } from "react-bootstrap";
 import "./MyHealth.css";
+import Weight from "../../assets/weight.png";
 
 export default function MyHealth({ urlBase, people, setPeople }) {
   // creating use state for user
@@ -28,31 +29,37 @@ export default function MyHealth({ urlBase, people, setPeople }) {
   };
 
   return (
-    <>
-      <h3 className="health-h3">My Health Page</h3>
+    <div className="my-health">
+      <h2 className="health-h2">My Health Page</h2>
       {/* returning profile list of the user */}
-      <Form onSubmit={handleSubmit} className="health-form">
-        <div className="email">
-          <Form.Control
-            onChange={emailHandleChange}
-            name="email"
-            placeholder="Email"
-          ></Form.Control>
-        </div>
-        <Button variant="primary" type="submit" className="btn-submit">
-          Submit
-        </Button>
-      </Form>
+      <div className="my-health-intro">
+        <img
+          className="weight"
+          src={Weight}
+          alt="hand grabbing weight from rack"
+        />
+        <Form onSubmit={handleSubmit} className="health-form">
+          <Form.Group>
+            <Form.Label className="label">
+              Enter Email to View Your Stats!
+            </Form.Label>
+            <Form.Control
+              onChange={emailHandleChange}
+              name="email"
+              placeholder="Email"
+            ></Form.Control>
+          </Form.Group>
+          <Button type="submit" className="btn-submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
       {user.length === 0 ? (
         <div></div>
       ) : (
         <div className="user-profile">
-          <ul>
-            {" "}
-            <li key={user._id}>Name : {user.firstName}</li>
-            <li>Age : {user.age}</li>
-            <li>Email : {user.email}</li>
-          </ul>
+          <h3>{user.firstName}</h3>
+          <p>Age : {user.age}</p>
           <WeeklyView urlBase={urlBase} user={user} />
           <DailyView
             urlBase={urlBase}
@@ -61,6 +68,6 @@ export default function MyHealth({ urlBase, people, setPeople }) {
           />
         </div>
       )}
-    </>
+    </div>
   );
 }

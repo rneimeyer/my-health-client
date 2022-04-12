@@ -1,7 +1,16 @@
-.health-h3 {
-  padding: 10px;
-  margin-bottom: -10px;
+.my-health-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.health-h2 {
   text-align: center;
+  color: #f66d73;
+}
+
+.weight {
+  width: 100%;
+  grid-column: 1/2;
 }
 
 ul {
@@ -12,13 +21,7 @@ ul {
 
 .health-form {
   padding: 20px;
-  margin-right: -5px;
-  margin-bottom: 10px;
-  width: 30rem;
-}
-
-.btn-submit {
-  margin-top: 20px;
+  grid-column: 2/3;
 }
 
 .delete-btn {
@@ -26,5 +29,28 @@ ul {
   margin-top: 15px;
 }
 
-@media only screen and (max-width: 768px) {
+.user-profile {
+  text-align: center;
+}
+
+.user-profile h3 {
+  color: #f66d73;
+}
+
+@media only screen and (min-width: 768px) {
+  .my-health-intro {
+    grid-template-columns: 1fr 2fr;
+  }
+  .health-form {
+    width: 80%;
+  }
+  .health-h2 {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .health-h2 {
+    font-size: 45px;
+  }
 }
