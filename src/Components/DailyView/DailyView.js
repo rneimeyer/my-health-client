@@ -4,12 +4,13 @@ import { Card, Button } from "react-bootstrap";
 import "./DailyView.css";
 
 const DailyView = ({ urlBase, user, handleSubmit }) => {
-  const [view, setView] = useState(false);
   const [activity, setActivity] = useState({});
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const activities = user.activity;
   const handleDelete = (id) => {
-    setView(false);
     fetch(`${urlBase}/activity/${id}`, {
       method: "DELETE",
     }).then((response) => response.json());
@@ -21,11 +22,11 @@ const DailyView = ({ urlBase, user, handleSubmit }) => {
   };
 
   const showUpdate = (event) => {
-    setView(true);
     let id = event.target.id;
     fetch(`${urlBase}/activity/${id}`)
       .then((response) => response.json())
       .then((data) => setActivity(data.activity));
+    handleShow();
   };
 
   function changeDate(date) {
@@ -43,8 +44,8 @@ const DailyView = ({ urlBase, user, handleSubmit }) => {
       "October",
       "November",
       "December",
-    ][d.getMonth()];
-    let str = month + " " + d.getDate() + " " + d.getFullYear();
+    ][d.getUTCMonth()];
+    let str = month + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
     return str;
   }
 
@@ -58,7 +59,7 @@ const DailyView = ({ urlBase, user, handleSubmit }) => {
       "Thursday",
       "Friday",
       "Saturday",
-    ][d.getDay()];
+    ][d.getUTCDay()];
     return day;
   }
 
@@ -68,11 +69,11 @@ const DailyView = ({ urlBase, user, handleSubmit }) => {
     let weekDay = dayOfWeek(activity.date);
     return (
       <Card key={activity._id} className="card">
-        <h2>{weekDay}</h2>
-        <p className="card-p">Date: {dateUpdate}</p>
-        <p className="card-p">Exercise: {activity.exercise}</p>
-        <p className="card-p">Length: {activity.length} minutes</p>
-        <p className="card-p">Intensity: {activity.intensity}</p>
+        <Card.Title>{weekDay}</Card.Title>
+        <Card.Text>Date: {dateUpdate}</Card.Text>
+        <Card.Text>Exercise: {activity.exercise}</Card.Text>
+        <Card.Text>Length: {activity.length} minutes</Card.Text>
+        <Card.Text>Intensity: {activity.intensity}</Card.Text>
         <Button className="btn-del" onClick={refreshPage} id={activity._id}>
           Delete
         </Button>
@@ -84,20 +85,18 @@ const DailyView = ({ urlBase, user, handleSubmit }) => {
   });
 
   return (
-    <div>
+    <div className="daily-view">
       <h3 className="daily-h3">Daily Activity</h3>
-      <div>{list}</div>
-      {view === false ? (
-        <div></div>
-      ) : (
-        <Update
-          urlBase={urlBase}
-          activity={activity}
-          setActivity={setActivity}
-          setView={setView}
-          handleSubmit={handleSubmit}
-        />
-      )}
+      <div className="activity-list">{list}</div>
+      <Update
+        urlBase={urlBase}
+        activity={activity}
+        setActivity={setActivity}
+        handleSubmit={handleSubmit}
+        show={show}
+        setShow={setShow}
+        handleClose={handleClose}
+      />
     </div>
   );
 };
