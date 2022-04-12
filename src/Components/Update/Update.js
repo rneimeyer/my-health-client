@@ -1,15 +1,20 @@
 import { useState } from "react";
-import { Form, Card, Button } from "react-bootstrap";
+import { Form, Card, Modal, Button } from "react-bootstrap";
 
-const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
+const Update = ({
+  urlBase,
+  activity,
+  setActivity,
+  handleSubmit,
+  show,
+  setShow,
+  handleClose,
+}) => {
   console.log(urlBase);
   const [date, setDate] = useState("");
   const [exercise, setExercise] = useState("");
   const [length, setLength] = useState("");
   const [intensity, setIntensity] = useState("");
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   function changeDate(date) {
     const d = new Date(date);
@@ -26,8 +31,8 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
       "October",
       "November",
       "December",
-    ][d.getMonth()];
-    let str = month + " " + d.getDate() + " " + d.getFullYear();
+    ][d.getUTCMonth()];
+    let str = month + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
     return str;
   }
 
@@ -72,7 +77,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
     fetch(`${urlBase}/activity/${activity._id}`, options)
       .then((res) => res.json())
       .then((data) => setActivity(data))
-      .then(() => setView(false));
+      .then(() => handleClose());
   };
 
   const updatePage = (event) => {
@@ -82,11 +87,12 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
 
   return (
     <div>
-      <Card>
-        <h2>Update your Activity</h2>
-        <p>Please update your activity below!</p>
-        <Form onSubmit={updatePage}>
-          <div className="date">
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update your Activity!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={updatePage}>
             <Form.Control
               onChange={dateHandleChange}
               name="date"
@@ -94,10 +100,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
               placeholder={updatedDate}
               required
             ></Form.Control>
-          </div>
-          <br />
-          <div className="activity">
-            <label> What activity did you do? </label>
+            <Form.Label> What activity did you do? </Form.Label>
             <Form.Control
               onChange={activityHandleChange}
               name="exercise"
@@ -105,9 +108,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
               placeholder={activity.exercise}
               required
             ></Form.Control>
-          </div>
-          <div className="length">
-            <label>How long did you work out (in minutes)?</label>
+            <Form.Label>How long did you work out (in minutes)?</Form.Label>
             <Form.Control
               onChange={lengthHandleChange}
               name="length"
@@ -115,10 +116,7 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
               placeholder={activity.length}
               required
             ></Form.Control>
-          </div>
-          <br />
-          <div className="intensity">
-            <label> How intense was your activity? </label>
+            <Form.Label> How intense was your activity? </Form.Label>
             <Form.Control
               onChange={intensityHandleChange}
               name="intensity"
@@ -126,18 +124,17 @@ const Update = ({ urlBase, activity, setActivity, setView, handleSubmit }) => {
               placeholder={activity.intensity}
               required
             ></Form.Control>
-          </div>
-          <br />
-          <Button
-            variant="primary"
-            type="submit"
-            className="submit-button"
-            value="Update"
-          >
-            Update
-          </Button>
-        </Form>
-      </Card>
+            <Button
+              variant="primary"
+              type="submit"
+              className="submit-button"
+              value="Update"
+            >
+              Update
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
