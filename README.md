@@ -1,17 +1,23 @@
 # Project Overview
 
+[Deployed Frontend](https://rneimeyer.github.io/my-health-client)
+
+[Deployed Backend](https://peaceful-beyond-24399.herokuapp.com/)
+
+[Backend Repo](https://github.com/rneimeyer/my-health-api)
+
 ## Project Schedule
 
-| Day   | Deliverable                          | Status     |
-| ----- | ------------------------------------ | ---------- |
-| Day 1 | Planning and Approval                | Complete   |
-| Day 1 | Set up backend files and structure   | Complete   |
-| Day 2 | Set up frontend files and structure  | Complete   |
-| Day 2 | Test and deploy backend              | Complete   |
-| Day 3 | CSS Styling and Responsive Design    | Complete   |
-| Day 4 | MVP & Bug Fixes & Adding Seed Data   | Complete   |
-| Day 4 | Final Touches and deploying frontend | Complete   |
-| Day 5 | Present                              | Incomplete |
+| Day   | Deliverable                          | Status   |
+| ----- | ------------------------------------ | -------- |
+| Day 1 | Planning and Approval                | Complete |
+| Day 1 | Set up backend files and structure   | Complete |
+| Day 2 | Set up frontend files and structure  | Complete |
+| Day 2 | Test and deploy backend              | Complete |
+| Day 3 | CSS Styling and Responsive Design    | Complete |
+| Day 4 | MVP & Bug Fixes & Adding Seed Data   | Complete |
+| Day 4 | Final Touches and deploying frontend | Complete |
+| Day 5 | Present                              | Complete |
 
 ## Project Description
 
