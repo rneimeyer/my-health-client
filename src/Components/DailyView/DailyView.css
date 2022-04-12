@@ -1,28 +1,32 @@
-.card {
-  display: inline-flex;
-  border: 2px solid #eee;
-  box-shadow: 0 2px 2px #ccc;
-  width: 43%;
-  margin-left: 25px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.daily-view {
+  margin-top: 10px;
 }
 
-.card-p {
+.activity-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 2%;
+}
+
+.card {
+  display: inline-flex;
+  width: 45%;
   padding: 5px;
-  font-size: 18px;
+}
+
+.card .btn {
+  margin: 2px auto;
+  width: 70%;
 }
 
 .daily-h3 {
   text-align: center;
 }
 
-.btn-del {
-  background-color: blueviolet;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) {
   .card {
-    width: 45%;
+    width: 300px;
   }
 }
