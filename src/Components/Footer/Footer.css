@@ -1,20 +1,9 @@
-.site-footer {
-  background-color: black;
+.footer {
+  background-color: #237c9d;
   padding: 30px;
   font-size: 18px;
-  color: #737373;
+  color: white;
   text-align: center;
-}
-
-.site-footer a {
-  color: #737373;
-}
-.site-footer a:hover {
-  text-decoration: none;
-}
-
-.footer {
   margin-bottom: 0;
-  position: absolute;
   width: 100%;
 }
